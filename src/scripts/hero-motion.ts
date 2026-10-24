@@ -28,6 +28,12 @@ if (hero) {
   const bar = hero.querySelector<HTMLElement>('[data-hero-bar]')!;
   const nextBtn = hero.querySelector<HTMLButtonElement>('[data-hero-next]')!;
   const nextName = hero.querySelector<HTMLElement>('[data-hero-next-name]')!;
+  const nextLabel = hero.querySelector<HTMLElement>('[data-hero-next-label]')!;
+  const endThumb = hero.querySelector<HTMLElement>('[data-hero-thumb-end]')!;
+  // In scroll mode the showcase ends on the last sport (scrolling continues down the page),
+  // so "Next up" must not promise the first sport again.
+  let endsOnLast = false;
+  const sportsSection = () => document.getElementById('sports-title')?.closest('section');
   const stage = hero.querySelector<HTMLElement>('[data-hero-stage]')!;
   const count = garments.length;
   const names = tabs.map((t) => t.textContent!.trim());
@@ -50,7 +56,9 @@ if (hero) {
     tabs.forEach((t, n) => t.setAttribute('aria-pressed', String(n === i)));
     garments.forEach((g, n) => g.toggleAttribute('aria-hidden', n !== i));
     captions.forEach((c, n) => { c.inert = n !== i; });
-    nextName.textContent = names[(i + 1) % count];
+    const atEnd = endsOnLast && i === count - 1;
+    nextLabel.textContent = atEnd ? 'Keep scrolling' : 'Next up';
+    nextName.textContent = atEnd ? 'All sports' : names[(i + 1) % count];
     // Keep the active tab visible by scrolling only the tab strip (never the window).
     const strip = tabs[i]?.parentElement;
     if (strip) {
@@ -85,7 +93,10 @@ if (hero) {
     let queued: number | null = null;
     const request = (i: number) => { if (goToReady) goToReady(i); else queued = i; };
     tabs.forEach((t, i) => t.addEventListener('click', () => request(i)));
-    nextBtn.addEventListener('click', () => request(current + 1 >= count ? 0 : current + 1));
+    nextBtn.addEventListener('click', () => {
+      if (endsOnLast && current === count - 1) sportsSection()?.scrollIntoView({ behavior: 'smooth' });
+      else request(current + 1 >= count ? 0 : current + 1);
+    });
     const build = () => {
       void setupScroll().then((goTo) => {
         goToReady = goTo;
@@ -102,6 +113,7 @@ if (hero) {
     gsap.registerPlugin(ScrollTrigger);
     // ------------------------------------------------------ scroll-driven showcase
     hero!.classList.add('is-scroll');
+    endsOnLast = true;
     // Fetch the other slides' images on first scroll (or after a few seconds), not during load.
     window.addEventListener('scroll', hydrateAll, { once: true, passive: true });
     setTimeout(hydrateAll, 4000);
@@ -138,7 +150,8 @@ if (hero) {
           { x: () => fromThumb().x, y: () => fromThumb().y, scale: () => fromThumb().scale, rotate: 6, autoAlpha: 1 },
           { x: 0, y: 0, scale: 1, rotate: 0, duration: STEP, ease: 'power3.out', immediateRender: false }, t)
         .set(thumbs[i], { opacity: 0 }, t)
-        .fromTo(thumbs[(i + 1) % count], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, immediateRender: false }, t + 0.7)
+        // On the last sport the card points down the page instead of back to the first sport.
+        .fromTo(i === count - 1 ? endThumb : thumbs[i + 1], { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.35, immediateRender: false }, t + 0.7)
         .to(bgs[i - 1], { autoAlpha: 0, scale: 1.08, duration: STEP * 0.7, ease: 'power1.in' }, t)
         .fromTo(bgs[i], { autoAlpha: 0, scale: 1.14 }, { autoAlpha: 1, scale: 1.02, duration: STEP * 0.7, ease: 'power2.out', immediateRender: false }, t)
         .to(words[i - 1], { autoAlpha: 0, xPercent: -10, duration: 0.5 }, t)

@@ -875,3 +875,126 @@ main > .section, main > .final-cta, main > .marquee, .site-footer {
 .showcase-stage, .showcase-item, .hero-words { pointer-events: none; }
 .showcase-tabs, .showcase-captions, .next-up { position: relative; z-index: 3; }
 .next-up { position: absolute; }
+
+/* ---------------------------------------------------------- surface polish
+   Rounded, separated cards with a soft gold edge on hover, and richer buttons.
+   Grids that used 1px hairline gaps now space their cards apart. */
+:root {
+  --radius: 10px;
+  --radius-lg: 18px;
+  --edge-dark: rgba(255, 255, 255, 0.09);
+  --edge-gold: linear-gradient(140deg, rgba(234, 209, 147, 0.85), rgba(154, 120, 64, 0.25) 45%, rgba(221, 187, 107, 0.7));
+  --glow-gold: 0 22px 50px -26px rgba(221, 187, 107, 0.55);
+  --shadow-card: 0 1px 2px rgba(14, 23, 38, 0.05), 0 18px 40px -28px rgba(14, 23, 38, 0.35);
+}
+
+/* Buttons */
+.btn { border-radius: 999px; padding-inline: 1.6rem; position: relative; overflow: hidden; isolation: isolate; }
+.btn--sm { padding-inline: 1.1rem; }
+.btn--primary {
+  border-color: transparent;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), inset 0 -2px 0 rgba(122, 91, 37, 0.35), 0 10px 24px -14px rgba(221, 187, 107, 0.7);
+}
+.btn--primary::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.55) 50%, transparent 70%);
+  transform: translateX(-120%); transition: transform 0.7s var(--ease);
+}
+.btn--primary:hover::after { transform: translateX(120%); }
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 -2px 0 rgba(122, 91, 37, 0.35), 0 18px 36px -14px rgba(221, 187, 107, 0.8);
+}
+.btn--ghost {
+  --btn-bd: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.btn--ghost:hover { background: rgba(221, 187, 107, 0.1); transform: translateY(-2px); }
+.btn--dark { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 10px 24px -16px rgba(14, 23, 38, 0.8); }
+.btn--dark:hover, .btn--outline-dark:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0) scale(0.98); }
+
+/* Text links with an arrow: animated gold underline */
+.link-arrow { position: relative; padding-bottom: 0.2rem; }
+.link-arrow::after {
+  content: ''; position: absolute; left: 0; right: 1.4rem; bottom: 0; height: 1.5px;
+  background: currentColor; transform: scaleX(0.25); transform-origin: left; opacity: 0.6;
+  transition: transform 0.35s var(--ease), opacity 0.35s;
+}
+.link-arrow:hover::after { transform: scaleX(1); opacity: 1; }
+.hero-quote-link { text-decoration-color: rgba(221, 187, 107, 0.5); text-underline-offset: 0.3em; }
+
+/* Hairline grids -> spaced cards */
+.sport-grid, .combat-band, .option-grid, .process { gap: clamp(0.6rem, 0.4rem + 0.6vw, 1rem); background: none; border: 0; }
+.why-grid { gap: clamp(0.6rem, 0.4rem + 0.6vw, 1rem); background: none; border: 0; }
+
+/* Shared dark card edge: hairline at rest, gold gradient ring on hover */
+.sport-card, .combat-link, .option-card, .process li, .trust-card, .hero-strip li {
+  border-radius: var(--radius-lg); overflow: hidden; position: relative; isolation: isolate;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease), background-color 0.3s;
+}
+.sport-card::before, .combat-link::before, .option-card::before, .process li::before, .trust-card::before, .hero-strip li::before {
+  content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; border-radius: inherit;
+  padding: 1px; background: linear-gradient(var(--edge-dark), var(--edge-dark));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  transition: opacity 0.3s;
+}
+.sport-card:hover::before, .combat-link:hover::before, .option-card:hover::before, .trust-card:hover::before, .hero-strip li:hover::before,
+.sport-card:focus-visible::before, .combat-link:focus-visible::before {
+  background: var(--edge-gold);
+}
+.sport-card:hover, .combat-link:hover, .option-card:hover { transform: translateY(-4px); box-shadow: var(--glow-gold); }
+.trust-card { border: 0; }
+.option-card { background: linear-gradient(170deg, var(--navy-800), var(--navy-900)); }
+.process li { background: linear-gradient(170deg, var(--navy-850), var(--navy-900)); }
+.combat-link { background: linear-gradient(170deg, var(--navy-850), var(--navy-900)); }
+.combat-link:hover { background: linear-gradient(170deg, var(--navy-800), var(--navy-850)); }
+.combat-link .thumb, .combat-link .thumb img { border-radius: 50%; }
+.process-line { border-radius: 3px; }
+
+/* Start-here strip under the hero */
+.hero-strip ul { gap: 0.6rem; background: none; }
+.hero-strip li { background: linear-gradient(170deg, rgba(18, 30, 53, 0.9), rgba(6, 10, 19, 0.92)); padding: 1.05rem 1.2rem; }
+.hero-strip li:hover { transform: translateY(-3px); }
+.hero-strip svg {
+  width: 34px; height: 34px; padding: 8px; border-radius: 50%; box-sizing: border-box;
+  border: 1px solid rgba(221, 187, 107, 0.35); background: rgba(221, 187, 107, 0.08);
+  transition: transform 0.25s, background-color 0.25s, color 0.25s;
+}
+.hero-strip a:hover svg { background: var(--gold-500); color: var(--ink-950); }
+
+/* Light cards: soft shadow + gold ring on hover */
+.product-card, .perf-tile, .collection-link, .why-item {
+  border-radius: var(--radius-lg); border: 1px solid var(--line-light); box-shadow: var(--shadow-card);
+}
+.product-card:hover, .perf-tile:hover, .collection-link:hover {
+  border-color: rgba(200, 165, 90, 0.75);
+  box-shadow: 0 0 0 1px rgba(200, 165, 90, 0.35), 0 26px 50px -28px rgba(14, 23, 38, 0.5);
+  transform: translateY(-4px);
+}
+.why-item { background: #fff; transition: transform 0.35s var(--ease), box-shadow 0.35s, border-color 0.35s; }
+.why-item:hover { transform: translateY(-3px); border-color: rgba(200, 165, 90, 0.55); }
+.why-item .ic { background: linear-gradient(150deg, var(--navy-500), var(--navy-700)); box-shadow: 0 8px 18px -10px rgba(14, 23, 38, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+.product-media .tag { border-radius: 999px; padding: 0.22rem 0.6rem; }
+.product-foot { background: linear-gradient(0deg, rgba(244, 241, 233, 0.6), transparent); }
+.collection-link .m { border-radius: 12px; }
+.perf-feature, .form-panel, .empty-state { border-radius: var(--radius-lg); }
+
+/* Pills, chips and form controls pick up the softer radius */
+.field input, .field select, .field textarea, .search-box input, .choice { border-radius: 12px; }
+.choice:has(input:checked) { box-shadow: 0 0 0 3px rgba(33, 49, 80, 0.12); }
+.showcase-tabs button[aria-pressed='true'] { box-shadow: 0 8px 20px -10px rgba(221, 187, 107, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.4); }
+.filter-tabs button[aria-pressed='true'] { box-shadow: 0 8px 18px -10px rgba(33, 49, 80, 0.8); }
+
+/* Hero "Next up" card */
+.next-up { box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.08); }
+.next-up:hover { box-shadow: var(--glow-gold), inset 0 1px 0 rgba(255, 255, 255, 0.1); }
+.next-up-end { position: absolute; inset: 0; display: grid; place-items: center; color: var(--gold-300); }
+.next-up-end svg { width: 22px; height: 22px; transform: rotate(90deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  .btn--primary::after { display: none; }
+  .sport-card:hover, .combat-link:hover, .option-card:hover, .product-card:hover, .perf-tile:hover, .collection-link:hover, .why-item:hover, .hero-strip li:hover { transform: none; }
+}

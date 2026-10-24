@@ -153,8 +153,9 @@ const jsonLd = [{
               {showcase.map((s, i) => (
                 <img src={`${s.product.image}-240.webp`} width="240" height="240" alt="" loading={i === 1 ? undefined : 'lazy'} decoding="async" data-hero-thumb style={i === 1 ? undefined : 'opacity:0'} />
               ))}
+              <span class="next-up-end" data-hero-thumb-end style="opacity:0"><Icon name="arrow" /></span>
             </span>
-            <span class="next-up-text"><small>Next up</small><strong data-hero-next-name>{showcase[1].category.name.replace(' / Football', '')}</strong></span>
+            <span class="next-up-text"><small data-hero-next-label>Next up</small><strong data-hero-next-name>{showcase[1].category.name.replace(' / Football', '')}</strong></span>
           </button>
           <div class="showcase-tabs" role="group" aria-label="Featured sports">
             {showcase.map((s, i) => (

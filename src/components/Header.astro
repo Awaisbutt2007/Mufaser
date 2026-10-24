@@ -1,6 +1,6 @@
 ---
 import Icon from './Icon.astro';
-import { groups, categoriesIn, categoryUrl } from '../data/catalog';
+import { groups, categoriesIn, categoryUrl, coverProduct } from '../data/catalog';
 
 const path = Astro.url.pathname;
 const links = [
@@ -38,24 +38,58 @@ const current = (href: string) => (path.startsWith(href) ? 'page' : undefined);
   </div>
 
   <div class="mega" id="mega-collections" hidden data-mega>
-    <div class="container mega-inner">
-      {groups.map((g) => (
-        <section>
-          <h2><a href={`/collections/#${g.id}`}>{g.name}</a></h2>
-          <p>{g.description}</p>
-          <ul>
-            {categoriesIn(g.id).map((c) => (
-              <li><a href={categoryUrl(c)}>{c.name}</a></li>
-            ))}
-          </ul>
-        </section>
-      ))}
-      <a class="mega-feature" href="/design-your-kit/">
-        <img src="/assets/hero/soccer-960.webp" alt="" width="960" height="407" loading="lazy" decoding="async" />
-        <strong>Design your kit</strong>
-        <span>Choose the sport, garments, colours and branding, then send it with your quote request.</span>
-        <span class="link-arrow" style="margin-top:1rem">Start now <Icon name="arrow" /></span>
-      </a>
+    <div class="container">
+      <div class="mega-inner">
+        <div class="mega-groups" role="group" aria-label="Collection groups">
+          {groups.map((g, i) => (
+            <button type="button" class="mega-group" aria-pressed={i === 0 ? 'true' : 'false'} aria-controls={`mega-panel-${g.id}`} data-mega-group>
+              <span>
+                <strong>{g.name}</strong>
+                <small>{categoriesIn(g.id).length} collections</small>
+              </span>
+              <Icon name="arrow" />
+            </button>
+          ))}
+          <a class="mega-all" href="/collections/">All collections <Icon name="arrow" /></a>
+        </div>
+
+        {groups.map((g, i) => (
+          <section class="mega-panel" id={`mega-panel-${g.id}`} aria-labelledby={`mega-title-${g.id}`} hidden={i !== 0} data-mega-panel>
+            <div class="mega-panel-head">
+              <div>
+                <h2 id={`mega-title-${g.id}`}>{g.name}</h2>
+                <p>{g.description}</p>
+              </div>
+              <a class="link-arrow" href={`/collections/#${g.id}`}>View all <Icon name="arrow" /></a>
+            </div>
+            <ul class="mega-list">
+              {categoriesIn(g.id).map((c, n) => {
+                const cover = coverProduct(c);
+                return (
+                  <li style={`--i:${n}`}>
+                    <a href={categoryUrl(c)}>
+                      <span class="mega-thumb" aria-hidden="true">
+                        {cover?.image
+                          ? <img src={`${cover.image}-240.webp`} width="240" height="240" alt="" loading="lazy" decoding="async" />
+                          : <img class="photo" src={`/assets/hero/${c.hero}-960.webp`} width="960" height="407" alt="" loading="lazy" decoding="async" />}
+                      </span>
+                      <span class="mega-name">{c.name}</span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </section>
+        ))}
+
+        <a class="mega-feature" href="/design-your-kit/">
+          <img src="/assets/hero/soccer-960.webp" alt="" width="960" height="407" loading="lazy" decoding="async" />
+          <span class="mega-feature-tag">Kit builder</span>
+          <strong>Design your kit</strong>
+          <span>Choose the sport, garments, colours and branding, then send it with your quote request.</span>
+          <span class="link-arrow" style="margin-top:1rem">Start now <Icon name="arrow" /></span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -89,11 +123,37 @@ const current = (href: string) => (path.startsWith(href) ? 'page' : undefined);
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
+  // `hidden` is only set after the close transition so the panel can animate both ways.
+  let closeTimer: number | undefined;
   function setMega(open: boolean, focusButton = false) {
     megaBtn.setAttribute('aria-expanded', String(open));
-    mega.hidden = !open;
+    clearTimeout(closeTimer);
+    if (open) {
+      if (mega.hidden) {
+        mega.hidden = false;
+        void mega.offsetWidth; // commit the closed state so the transition runs
+      }
+      mega.dataset.open = 'true';
+    } else {
+      mega.dataset.open = 'false';
+      closeTimer = window.setTimeout(() => { mega.hidden = true; }, 240);
+    }
     if (!open && focusButton) megaBtn.focus();
   }
+
+  // Group tabs: hover, focus or click shows that group's collections.
+  const groupBtns = [...mega.querySelectorAll<HTMLButtonElement>('[data-mega-group]')];
+  const panels = [...mega.querySelectorAll<HTMLElement>('[data-mega-panel]')];
+  const showGroup = (i: number) => {
+    if (groupBtns[i].getAttribute('aria-pressed') === 'true') return;
+    groupBtns.forEach((b, n) => b.setAttribute('aria-pressed', String(n === i)));
+    panels.forEach((p, n) => { p.hidden = n !== i; });
+  };
+  groupBtns.forEach((b, i) => {
+    b.addEventListener('mouseenter', () => showGroup(i));
+    b.addEventListener('focus', () => showGroup(i));
+    b.addEventListener('click', () => showGroup(i));
+  });
   // A hover-open immediately followed by a click must not toggle the menu shut.
   let hoverOpenedAt = 0;
   megaBtn.addEventListener('click', () => {

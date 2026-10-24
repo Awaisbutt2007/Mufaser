@@ -1,0 +1,83 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { company } from '../data/company';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  /** Hero image to preload for LCP: { href, srcset, sizes } */
+  preload?: { href: string; srcset?: string; sizes?: string };
+  jsonLd?: Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const { title, description, image = '/assets/brand/og-default.jpg', preload, jsonLd = [], noindex = false } = Astro.props;
+const site = Astro.site ?? new URL(company.siteUrl);
+const canonical = new URL(Astro.url.pathname, site).href;
+const ogImage = new URL(image, site).href;
+const fullTitle = title.includes(company.name) ? title : `${title} | ${company.name}`;
+
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: company.name,
+  url: site.href,
+  logo: new URL('/assets/brand/logo-color.png', site).href,
+  email: company.email,
+  telephone: `+${company.whatsapp.digits}`,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.address.street,
+    addressLocality: company.address.locality,
+    postalCode: company.address.postalCode,
+    addressCountry: company.address.countryCode,
+  },
+};
+const ld = [organization, ...jsonLd];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <meta name="theme-color" content="#0a1222" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={company.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_GB" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preload" href="/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/manrope-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    {preload && (
+      <link rel="preload" as="image" href={preload.href} imagesrcset={preload.srcset} imagesizes={preload.sizes} fetchpriority="high" />
+    )}
+    <script is:inline>document.documentElement.classList.add('js');</script>
+    {ld.map((item) => <script type="application/ld+json" set:html={JSON.stringify(item).replace(/</g, '\\u003c')} />)}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main" tabindex="-1">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import '../scripts/site-motion';
+    </script>
+  </body>
+</html>

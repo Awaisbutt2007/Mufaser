@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { assetSources } from '../../data/asset-sources';
+
+const isUrl = (s: string) => /^https?:\/\//.test(s);
+---
+<Base title="Image Credits" description="Sources and licences for the images used on the Mufasar Enterprises website.">
+  <section class="page-hero page-hero--plain" style="padding-bottom:2rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Image credits' }]} />
+      <h1 class="display">Image credits</h1>
+      <p class="lead">Product images marked "concept visual" show example colours and designs and are not photographs of a specific manufactured order. Editorial photographs are used under the licences below.</p>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container table-wrap">
+      <table class="credits-table">
+        <thead>
+          <tr><th scope="col">Use</th><th scope="col">Creator</th><th scope="col">Source</th><th scope="col">Licence</th><th scope="col">Notes</th></tr>
+        </thead>
+        <tbody>
+          {assetSources.map((a) => (
+            <tr>
+              <td><strong>{a.category}</strong></td>
+              <td>{a.creator}</td>
+              <td>{isUrl(a.source) ? <a href={a.source} rel="noopener" target="_blank">{a.provider}</a> : `${a.provider}: ${a.source}`}</td>
+              <td>{a.license}</td>
+              <td>{a.notes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+</Base>

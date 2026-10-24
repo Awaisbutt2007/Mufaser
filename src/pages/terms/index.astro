@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { company } from '../../data/company';
+---
+<Base title="Terms of Use" description={`Terms of use for the ${company.name} website, including how quotations, orders, product images and artwork are handled.`}>
+  <section class="page-hero page-hero--plain" style="padding-bottom:2rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Terms of use' }]} />
+      <h1 class="display">Terms of use</h1>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container prose">
+      <p><em>Last updated: 23 October 2026. These terms should be reviewed by {company.name} and its legal adviser before launch.</em></p>
+      <h2>About this website</h2>
+      <p>This website presents the products and manufacturing services of {company.name}. It is provided for information and to let buyers request quotations.</p>
+      <h2>Quotations and orders</h2>
+      <p>Nothing on this website is an offer to sell at a particular price. Prices, minimum quantities, materials and lead times are confirmed in a written quotation. An order is only binding once confirmed in writing by both parties, on the terms stated in that quotation.</p>
+      <h2>Product images</h2>
+      <p>Product images marked "concept visual" show example colours and designs and are not photographs of a specific manufactured order. Editorial and illustrative photographs are credited on the <a href="/image-credits/">image credits</a> page. Final garments follow the specification and sample you approve.</p>
+      <h2>Intellectual property</h2>
+      <p>The {company.name} name and logo belong to {company.name}. When you send us logos, crests or artwork, you confirm that you have the right to use them and authorise us to reproduce them for your order.</p>
+      <h2>Liability</h2>
+      <p>We take care to keep this website accurate, but information may change. To the extent permitted by law, we are not liable for loss arising from reliance on the website rather than on a written quotation.</p>
+      <h2>Contact</h2>
+      <p>Questions about these terms: <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+    </div>
+  </section>
+</Base>

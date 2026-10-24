@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { company } from '../../data/company';
+---
+<Base title="Privacy Policy" description={`How ${company.name} collects and uses the information you send through this website.`}>
+  <section class="page-hero page-hero--plain" style="padding-bottom:2rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Privacy policy' }]} />
+      <h1 class="display">Privacy policy</h1>
+    </div>
+  </section>
+  <section class="section section--paper">
+    <div class="container prose">
+      <p><em>Last updated: 23 October 2026. This policy is provided as a starting point and should be reviewed by {company.name} and its legal adviser before launch.</em></p>
+      <h2>Who we are</h2>
+      <p>This website is operated by {company.name}, {company.address.street}, {company.address.locality} {company.address.postalCode}, {company.address.country}. Contact: <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+      <h2>What we collect</h2>
+      <p>When you submit a quote request, kit request or contact form, we collect the details you enter: your name, business email, company, country, phone or WhatsApp number (if provided), the products, quantities and requirements you describe, and your preferred reply method.</p>
+      <p>We do not use advertising or analytics cookies on this website. The website does not ask you to create an account.</p>
+      <h2>How we use it</h2>
+      <ul>
+        <li>To prepare and send the quotation or information you asked for.</li>
+        <li>To follow up on your request, including samples, orders and shipping.</li>
+        <li>To keep a record of your specification so reorders can be matched.</li>
+      </ul>
+      <p>We use your information because you asked us to respond to your request (steps taken before entering into a contract) and, where applicable, with your consent. We do not sell your information.</p>
+      <h2>Who processes it</h2>
+      <p>Form submissions are received and stored by our website platform provider (Sialkot B2B / Ayzelify Sites), which hosts this website and delivers inquiries to our inbox. If you contact us by email or WhatsApp, those services also process your messages under their own terms.</p>
+      <h2>How long we keep it</h2>
+      <p>We keep inquiry records for as long as needed to respond and to support any resulting order and reorders, and then delete them or ask you before keeping them longer.</p>
+      <h2>Your rights</h2>
+      <p>You can ask to access, correct or delete the information you sent us, or object to its use, by emailing <a href={`mailto:${company.email}`}>{company.email}</a>. If you are in the UK or EU, you may also complain to your local data-protection authority.</p>
+    </div>
+  </section>
+</Base>

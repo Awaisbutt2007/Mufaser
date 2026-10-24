@@ -1,0 +1,57 @@
+---
+import { company, whatsappUrl } from '../data/company';
+import { categoriesIn, categoryUrl } from '../data/catalog';
+
+const year = new Date().getFullYear();
+const team = categoriesIn('team');
+const combat = categoriesIn('combat');
+const perf = categoriesIn('performance').filter((c) => ['activewear', 'gym-wear', 'compression-wear', 'running-wear', 'yoga-wear', 'tracksuits', 'streetwear'].includes(c.slug));
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="/assets/brand/logo-white-260.webp" alt="Mufasar Enterprises" width="260" height="220" loading="lazy" decoding="async" />
+        <p>{company.legalDescriptor} based in {company.city}, {company.country}. Custom teamwear, combat sportswear, activewear and private-label apparel made to your specification.</p>
+      </div>
+      <nav aria-label="Team sportswear">
+        <h2>Team sportswear</h2>
+        <ul>{team.map((c) => <li><a href={categoryUrl(c)}>{c.name}</a></li>)}</ul>
+      </nav>
+      <nav aria-label="Combat sportswear">
+        <h2>Combat sportswear</h2>
+        <ul>{combat.map((c) => <li><a href={categoryUrl(c)}>{c.name}</a></li>)}</ul>
+      </nav>
+      <nav aria-label="Performance and lifestyle">
+        <h2>Performance &amp; lifestyle</h2>
+        <ul>
+          {perf.map((c) => <li><a href={categoryUrl(c)}>{c.name}</a></li>)}
+          <li><a href="/collections/">All collections</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <address>
+          {company.name}<br />
+          {company.address.street}<br />
+          {company.address.locality} {company.address.postalCode}, {company.address.country}
+        </address>
+        <ul style="margin-top:1rem">
+          <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+          <li><a href={whatsappUrl()} rel="noopener" target="_blank">WhatsApp {company.whatsapp.display}</a></li>
+          <li><a href={company.siteUrl}>{company.siteUrl.replace('https://', '')}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© {year} {company.name}. All rights reserved.</p>
+      <ul>
+        <li><a href="/custom-manufacturing/">Custom manufacturing</a></li>
+        <li><a href="/request-a-quote/">Request a quote</a></li>
+        <li><a href="/privacy/">Privacy policy</a></li>
+        <li><a href="/terms/">Terms of use</a></li>
+        <li><a href="/image-credits/">Image credits</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,135 @@
+---
+import Icon from './Icon.astro';
+import { allProducts, categories } from '../data/catalog';
+import { company, facts } from '../data/company';
+
+interface Props {
+  id?: string;
+  product?: string;
+  heading?: string;
+  intro?: string;
+  submitLabel?: string;
+  showCustomisation?: boolean;
+}
+
+const {
+  id = 'quote',
+  product = '',
+  heading = 'Request a quotation',
+  intro = `Tell us what you need. ${facts.responseTime.value}.`,
+  submitLabel = 'Send quote request',
+  showCustomisation = true,
+} = Astro.props;
+
+const options = [
+  ...categories.filter((c) => c.kind !== 'hub').map((c) => `${c.name} (collection)`),
+  ...allProducts.map((p) => p.name),
+];
+const customisation = [
+  'Team colours',
+  'Crest or logo',
+  'Names and numbers',
+  'Sponsor logos',
+  'Private label (labels, hangtags)',
+  'Custom packaging',
+  'Fabric selection',
+  'Sizing kit before ordering',
+];
+const f = (name: string) => `${id}-${name}`;
+---
+<div class="form-panel" id={id}>
+  <form data-inquiry-form aria-labelledby={f('title')} novalidate>
+    <div class="stack" style="--stack:0.5rem; margin-bottom:1.5rem">
+      <h2 id={f('title')} class="display" style="font-size:var(--step-3)">{heading}</h2>
+      <p class="muted">{intro}</p>
+    </div>
+    <div class="form-grid">
+      <div class="field">
+        <label for={f('name')}>Your name</label>
+        <input id={f('name')} name="name" autocomplete="name" maxlength="120" required aria-describedby={f('name-err')} />
+        <p class="field-error" id={f('name-err')} data-error-for="name" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('email')}>Business email</label>
+        <input id={f('email')} name="email" type="email" autocomplete="email" maxlength="254" required inputmode="email" aria-describedby={f('email-err')} />
+        <p class="field-error" id={f('email-err')} data-error-for="email" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('company')}>Company or club <span class="opt">(optional)</span></label>
+        <input id={f('company')} name="company" autocomplete="organization" maxlength="160" aria-describedby={f('company-err')} />
+        <p class="field-error" id={f('company-err')} data-error-for="company" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('country')}>Country</label>
+        <input id={f('country')} name="country" autocomplete="country-name" maxlength="100" required aria-describedby={f('country-err')} />
+        <p class="field-error" id={f('country-err')} data-error-for="country" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('product')}>Product or category</label>
+        <input id={f('product')} name="product" list={f('products')} maxlength="120" required value={product} placeholder="e.g. Soccer match jersey" aria-describedby={f('product-err')} />
+        <datalist id={f('products')}>{options.map((o) => <option value={o} />)}</datalist>
+        <p class="field-error" id={f('product-err')} data-error-for="product" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('quantity')}>Estimated quantity (pieces)</label>
+        <input id={f('quantity')} name="quantity" type="number" inputmode="numeric" min="1" max="1000000" step="1" required placeholder="e.g. 250" aria-describedby={f('quantity-err')} />
+        <p class="field-error" id={f('quantity-err')} data-error-for="quantity" hidden></p>
+      </div>
+      {showCustomisation && (
+        <fieldset class="wide">
+          <legend>Customisation required <span class="opt">(optional)</span></legend>
+          <div class="choice-grid">
+            {customisation.map((c) => (
+              <label class="choice"><input type="checkbox" name="customisation" value={c} data-summary="Customisation" />{c}</label>
+            ))}
+          </div>
+        </fieldset>
+      )}
+      <div class="field wide">
+        <label for={f('message')}>Your requirements</label>
+        <textarea id={f('message')} name="message" maxlength="5000" required aria-describedby={`${f('message-hint')} ${f('message-err')}`} placeholder="Garments, colours, fabric, branding, size range, destination and target delivery date."></textarea>
+        <p class="hint" id={f('message-hint')}>Logos, tech packs and reference images can be sent by email or WhatsApp after you submit.</p>
+        <p class="field-error" id={f('message-err')} data-error-for="message" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('phone')}>WhatsApp or phone <span class="opt">(optional)</span></label>
+        <input id={f('phone')} name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Include country code" aria-describedby={f('phone-err')} />
+        <p class="field-error" id={f('phone-err')} data-error-for="phone" hidden></p>
+      </div>
+      <div class="field">
+        <label for={f('reply')}>Preferred reply</label>
+        <select id={f('reply')} name="preferredContact">
+          <option value="email">Email</option>
+          <option value="whatsapp">WhatsApp</option>
+          <option value="phone">Phone</option>
+        </select>
+      </div>
+      <div class="wide">
+        <label class="check">
+          <input type="checkbox" name="consent" required aria-describedby={f('consent-err')} />
+          <span>I agree that {company.name} may use these details to prepare and follow up this quotation. See the <a href="/privacy/">privacy policy</a>.</span>
+        </label>
+        <p class="field-error" id={f('consent-err')} data-error-for="consent" hidden></p>
+      </div>
+      <div class="honeypot" aria-hidden="true">
+        <label>Website <input name="website" tabindex="-1" autocomplete="off" /></label>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn--dark" type="submit">{submitLabel} <Icon name="arrow" /></button>
+      <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+    </div>
+    <p class="form-privacy">Prefer to talk? Email <a href={`mailto:${company.email}`}>{company.email}</a> or WhatsApp <a href={`https://wa.me/${company.whatsapp.digits}`} rel="noopener" target="_blank">{company.whatsapp.display}</a>.</p>
+  </form>
+  <div class="form-success" data-form-success hidden tabindex="-1" role="status">
+    <span class="ok"><Icon name="check" /></span>
+    <h3>Request received</h3>
+    <p>Thank you. Your request has been recorded and our team will reply with a quotation, normally within one business day.</p>
+    <p class="small muted">Your reference: <code data-reference></code></p>
+    <div class="btn-row"><button class="btn btn--outline-dark btn--sm" type="button" data-form-again>Send another request</button></div>
+  </div>
+</div>
+
+<script>
+  import '../scripts/forms';
+</script>

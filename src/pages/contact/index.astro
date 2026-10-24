@@ -1,0 +1,36 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { company, whatsappUrl } from '../../data/company';
+---
+<Base
+  title="Contact"
+  description={`Contact ${company.name} in ${company.city}, ${company.country}: email, WhatsApp and address for custom sportswear and private-label manufacturing.`}
+>
+  <section class="page-hero page-hero--plain" style="padding-bottom:2.5rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Contact' }]} />
+      <span class="eyebrow">Contact</span>
+      <h1 class="display" style="margin-top:1rem">Discuss your <span class="gold-text">requirements</span></h1>
+      <p class="lead">Talk directly to the production team about garments, fabrics, branding, quantities and delivery.</p>
+    </div>
+  </section>
+  <section class="section section--paper" style="padding-top:clamp(2rem,1rem + 3vw,4rem)">
+    <div class="container split contact-split" style="align-items:start">
+      <div class="stack" style="--stack:1.5rem">
+        <dl class="contact-cards">
+          <div><dt>Email</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+          <div><dt>WhatsApp / phone</dt><dd><a href={whatsappUrl()} target="_blank" rel="noopener">{company.whatsapp.display}</a></dd></div>
+          <div><dt>Address</dt><dd><address>{company.name}<br />{company.address.street}<br />{company.address.locality} {company.address.postalCode}<br />{company.address.country}</address></dd></div>
+          <div><dt>Markets served</dt><dd>{company.markets.join(' · ')}</dd></div>
+        </dl>
+        <div class="btn-row">
+          <a class="btn btn--dark" href={whatsappUrl('Hello Mufasar Enterprises, I would like to discuss a sportswear order.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> Chat on WhatsApp</a>
+        </div>
+      </div>
+      <QuoteForm id="contact" heading="Send us your brief" submitLabel="Send message" />
+    </div>
+  </section>
+</Base>

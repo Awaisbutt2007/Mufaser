@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+import GarmentArt from './GarmentArt.astro';
+import { productSources, productUrl, type Product } from '../data/catalog';
+
+interface Props {
+  product: Product;
+  showCategory?: boolean;
+  eager?: boolean;
+}
+const { product, showCategory = true, eager = false } = Astro.props;
+const img = product.image ? productSources(product.image) : null;
+const decoration = product.specs.find(([k]) => k === 'Decoration')?.[1];
+---
+<a class="product-card" href={productUrl(product)} data-product-card data-group={product.group} data-name={`${product.name} ${product.categoryName} ${product.group}`.toLowerCase()}>
+  <div class="product-media">
+    {img ? (
+      <img
+        src={img.src}
+        srcset={img.srcset}
+        sizes="(min-width: 1140px) 300px, (min-width: 760px) 30vw, 46vw"
+        width={img.width}
+        height={img.height}
+        alt={`${product.name}: concept visual shown in example colours`}
+        loading={eager ? 'eager' : 'lazy'}
+        decoding="async"
+      />
+    ) : (
+      <>
+        <GarmentArt garment={product.garment} class="placeholder-art" />
+        <span class="placeholder-note">Photography coming soon</span>
+      </>
+    )}
+    {img && <span class="tag">Concept visual</span>}
+  </div>
+  <div class="product-body">
+    {showCategory && <span class="cat">{product.categoryName}</span>}
+    <h3>{product.name}</h3>
+    <ul>
+      <li><Icon name="check" />Made in your colours</li>
+      {decoration && <li><Icon name="check" />Sublimation, embroidery or print</li>}
+      <li><Icon name="check" />Youth and adult sizes</li>
+    </ul>
+  </div>
+  <div class="product-foot">
+    <span>Request a quote</span>
+    <Icon name="arrow" />
+  </div>
+</a>

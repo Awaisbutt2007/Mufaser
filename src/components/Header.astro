@@ -1,0 +1,141 @@
+---
+import Icon from './Icon.astro';
+import { groups, categoriesIn, categoryUrl } from '../data/catalog';
+
+const path = Astro.url.pathname;
+const links = [
+  { href: '/custom-manufacturing/', label: 'Custom Manufacturing' },
+  { href: '/design-your-kit/', label: 'Design Your Kit' },
+  { href: '/about/', label: 'About Us' },
+  { href: '/contact/', label: 'Contact' },
+];
+const current = (href: string) => (path.startsWith(href) ? 'page' : undefined);
+---
+<header class="site-header" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="/" aria-label="Mufasar Enterprises — home">
+      <img src="/assets/brand/mark-on-dark-80.webp" alt="" width="40" height="46" />
+      <img class="brand-word" src="/assets/brand/wordmark-white-240.webp" alt="Mufasar Enterprises" width="110" height="30" />
+    </a>
+
+    <nav class="primary-nav" aria-label="Main">
+      <ul>
+        <li>
+          <button class="nav-link" type="button" aria-expanded="false" aria-controls="mega-collections" data-mega-toggle>
+            Collections <Icon name="chevron" />
+          </button>
+        </li>
+        {links.map((l) => (
+          <li><a class="nav-link" href={l.href} aria-current={current(l.href)}>{l.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+    <a class="btn btn--primary btn--sm header-cta" href="/request-a-quote/">Request a Quote</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Open menu" data-drawer-toggle>
+      <Icon name="menu" class="i-open" />
+      <Icon name="close" class="i-close" />
+    </button>
+  </div>
+
+  <div class="mega" id="mega-collections" hidden data-mega>
+    <div class="container mega-inner">
+      {groups.map((g) => (
+        <section>
+          <h2><a href={`/collections/#${g.id}`}>{g.name}</a></h2>
+          <p>{g.description}</p>
+          <ul>
+            {categoriesIn(g.id).map((c) => (
+              <li><a href={categoryUrl(c)}>{c.name}</a></li>
+            ))}
+          </ul>
+        </section>
+      ))}
+      <a class="mega-feature" href="/design-your-kit/">
+        <img src="/assets/hero/soccer-960.webp" alt="" width="960" height="407" loading="lazy" decoding="async" />
+        <strong>Design your kit</strong>
+        <span>Choose the sport, garments, colours and branding, then send it with your quote request.</span>
+        <span class="link-arrow" style="margin-top:1rem">Start now <Icon name="arrow" /></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="drawer" id="mobile-drawer" hidden data-drawer>
+    {groups.map((g) => (
+      <details>
+        <summary>{g.short}<Icon name="chevron" /></summary>
+        <ul>
+          {categoriesIn(g.id).map((c) => (
+            <li><a href={categoryUrl(c)}>{c.name}</a></li>
+          ))}
+        </ul>
+      </details>
+    ))}
+    <ul class="drawer-links">
+      <li><a href="/collections/">All collections</a></li>
+      {links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+    </ul>
+    <a class="btn btn--primary" href="/request-a-quote/">Request a Quote <Icon name="arrow" /></a>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-header]')!;
+  const megaBtn = header.querySelector<HTMLButtonElement>('[data-mega-toggle]')!;
+  const mega = header.querySelector<HTMLElement>('[data-mega]')!;
+  const drawerBtn = header.querySelector<HTMLButtonElement>('[data-drawer-toggle]')!;
+  const drawer = header.querySelector<HTMLElement>('[data-drawer]')!;
+
+  const onScroll = () => header.setAttribute('data-solid', String(window.scrollY > 24));
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  function setMega(open: boolean, focusButton = false) {
+    megaBtn.setAttribute('aria-expanded', String(open));
+    mega.hidden = !open;
+    if (!open && focusButton) megaBtn.focus();
+  }
+  // A hover-open immediately followed by a click must not toggle the menu shut.
+  let hoverOpenedAt = 0;
+  megaBtn.addEventListener('click', () => {
+    const open = megaBtn.getAttribute('aria-expanded') === 'true';
+    if (open && Date.now() - hoverOpenedAt < 600) return;
+    setMega(!open);
+  });
+
+  // Hover intent for precise pointers; click/keyboard always works.
+  if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    let timer: number | undefined;
+    const open = () => {
+      clearTimeout(timer);
+      if (mega.hidden) hoverOpenedAt = Date.now();
+      setMega(true);
+    };
+    const close = () => { timer = window.setTimeout(() => setMega(false), 180); };
+    megaBtn.addEventListener('mouseenter', open);
+    mega.addEventListener('mouseenter', open);
+    megaBtn.addEventListener('mouseleave', close);
+    mega.addEventListener('mouseleave', close);
+  }
+
+  function setDrawer(open: boolean) {
+    drawerBtn.setAttribute('aria-expanded', String(open));
+    drawerBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    drawer.hidden = !open;
+    document.body.dataset.menuOpen = String(open);
+  }
+  drawerBtn.addEventListener('click', () => setDrawer(drawerBtn.getAttribute('aria-expanded') !== 'true'));
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Escape') return;
+    if (!mega.hidden) setMega(false, true);
+    if (!drawer.hidden) { setDrawer(false); drawerBtn.focus(); }
+  });
+  document.addEventListener('click', (e) => {
+    if (!mega.hidden && !header.contains(e.target as Node)) setMega(false);
+  });
+  mega.addEventListener('focusout', (e) => {
+    const next = e.relatedTarget as Node | null;
+    if (next && !mega.contains(next) && next !== megaBtn) setMega(false);
+  });
+  matchMedia('(min-width: 1000px)').addEventListener('change', (m) => { if (m.matches) setDrawer(false); });
+</script>

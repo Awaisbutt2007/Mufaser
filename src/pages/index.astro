@@ -1,0 +1,389 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import SportCard from '../components/SportCard.astro';
+import ProductCard from '../components/ProductCard.astro';
+import ProcessSteps from '../components/ProcessSteps.astro';
+import FinalCta from '../components/FinalCta.astro';
+import {
+  categoriesIn, categoryBySlug, categoryUrl, coverProduct, craftSources, featuredProducts, heroSources, allProducts, categories,
+} from '../data/catalog';
+import { company, facts, whatsappUrl } from '../data/company';
+
+const showcase = [
+  ['soccer', 'soccer-match-jersey'],
+  ['basketball', 'basketball-game-jersey'],
+  ['american-football', 'football-game-jersey'],
+  ['cricket', 'cricket-playing-shirt'],
+  ['ice-hockey', 'hockey-game-jersey'],
+  ['boxing', 'boxing-shorts'],
+  ['bjj', 'bjj-gi'],
+  ['activewear', 'compression-long-sleeve'],
+  ['streetwear', 'heavyweight-hoodie'],
+].map(([c, p]) => {
+  const category = categoryBySlug[c];
+  const product = category.products.find((x) => x.slug === p)!;
+  const shortNames: Record<string, string> = { 'american-football': 'Football', 'ice-hockey': 'Hockey', bjj: 'BJJ' };
+  const short = shortNames[c] ?? category.name.split(' ')[0];
+  return { category, product, hero: heroSources(category.hero!), short };
+});
+const first = showcase[0];
+const heroSizes = '100vw';
+
+const team = categoriesIn('team');
+const combat = categoriesIn('combat');
+const perfTiles = categoriesIn('performance').filter((c) => c.slug !== 'activewear');
+
+const customOptions = [
+  { title: 'Team colours', body: 'Every garment is made in your colours: body, trims, panels and collars.', img: 'sublimation' },
+  { title: 'Logos & placement', body: 'Crests, sponsor logos, names and numbers placed where you want them.', img: 'embroidery' },
+  { title: 'Custom prints', body: 'Sublimation, screen print, embroidery, heat transfer or tackle twill, matched to the garment.', img: 'screen-print' },
+  { title: 'Fabric selection', body: 'Tell us the composition, weight and finish you need, or send a swatch to match.', img: 'fabric-pique' },
+  { title: 'Size ranges', body: 'Youth and adult sizes, with a sizing kit available before you order.', img: 'tackle-twill' },
+  { title: 'Private label', body: 'Woven labels, hangtags and packaging carrying your own brand.', img: 'woven-labels' },
+];
+
+const reasons = [
+  { icon: 'layers', title: 'One factory, end to end', body: `${facts.inHouse.value}, so one team owns your order from first message to dispatch.` },
+  { icon: 'shield', title: 'Sample before bulk', body: 'Every order is produced to a physical sample you have approved, then checked against it before it ships.' },
+  { icon: 'clock', title: 'Fast, clear quotations', body: `${facts.responseTime.value}, with samples typically in ${facts.sampleLeadTime.value} once artwork and materials are confirmed.` },
+  { icon: 'spark', title: `${categories.length} categories, one supplier`, body: 'Team kits, combat sportswear, activewear and streetwear from a single manufacturing partner.' },
+  { icon: 'repeat', title: 'Reorders that match', body: `${facts.reorders.value}.` },
+  { icon: 'ship', title: 'Export-ready', body: `Shipped ${facts.shipping.value.charAt(0).toLowerCase()}${facts.shipping.value.slice(1)}.` },
+] as const;
+
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: company.name,
+  url: company.siteUrl,
+}];
+---
+<Base
+  title="Custom Sportswear Manufacturer in Sialkot, Pakistan | Mufasar Enterprises"
+  description="Mufasar Enterprises manufactures custom teamwear, combat sportswear, activewear and private-label apparel in Sialkot, Pakistan for clubs, brands and distributors worldwide. Request a quote."
+  preload={{ href: `${first.product.image}-960.webp`, srcset: `${first.product.image}-480.webp 480w, ${first.product.image}-960.webp 960w`, sizes: '(min-width: 1000px) min(40vw, 56vh), 88vw' }}
+  jsonLd={jsonLd}
+>
+  <!-- ============================================================ HERO -->
+  <!-- Pre-built pin spacer: ScrollTrigger reuses it instead of re-parenting the hero (keeps LCP stable). -->
+  <div class="hero-pin" data-hero-pin>
+  <section class="hero" aria-labelledby="hero-title" data-hero>
+    <div class="hero-bg" aria-hidden="true">
+      {showcase.map((s, i) => (
+        <picture data-active={String(i === 0)} data-hero-bg>
+          <img
+            src={i === 0 ? s.hero.src : undefined}
+            srcset={i === 0 ? s.hero.srcset : undefined}
+            data-src={s.hero.src}
+            data-srcset={s.hero.srcset}
+            sizes={heroSizes}
+            width={s.hero.width}
+            height={s.hero.height}
+            alt=""
+            decoding="async"
+            style={`object-position:${s.category.heroPosition}`}
+          />
+        </picture>
+      ))}
+    </div>
+    <div class="hero-words" aria-hidden="true">
+      {showcase.map((s, i) => (
+        <span class="hero-word" data-hero-word style={i === 0 ? undefined : 'opacity:0'}>{s.short}</span>
+      ))}
+    </div>
+
+    <div class="container hero-inner">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow" data-hero-intro>Manufacturer &amp; exporter · {company.city}, {company.country}</span>
+          <h1 id="hero-title" class="display">
+            <span class="hl"><span>Custom sportswear</span></span>
+            <span class="hl"><span>manufacturing.</span></span>
+            <span class="hl"><span class="gold-text">Built for your brand.</span></span>
+          </h1>
+          <p class="lead" data-hero-intro>
+            Teamwear, combat sportswear, activewear and private-label apparel, made to your specification
+            for clubs, brands and distributors worldwide.
+          </p>
+          <div class="btn-row" data-hero-intro>
+            <a class="btn btn--primary" href="/collections/">Explore Collections <Icon name="arrow" /></a>
+            <a class="btn btn--ghost" href="/design-your-kit/">Design Your Kit</a>
+          </div>
+          <a class="hero-quote-link" href="/request-a-quote/" data-hero-intro>Or request a quote directly →</a>
+          <p class="hero-meta" data-hero-intro>
+            <span><Icon name="clock" />Quotation within one business day</span>
+            <span><Icon name="shield" />Sample approved before bulk</span>
+            <span><Icon name="globe" />Air &amp; sea export</span>
+          </p>
+        </div>
+
+        <div class="showcase">
+          <div class="showcase-head" aria-hidden="true">
+            <span class="showcase-count"><b data-hero-now>01</b> / {String(showcase.length).padStart(2, '0')}</span>
+            <span class="showcase-bar"><i data-hero-bar></i></span>
+          </div>
+          <div class="showcase-stage" data-hero-stage>
+            {showcase.map((s, i) => (
+              <div class="showcase-item" data-hero-garment data-active={String(i === 0)} aria-hidden={i === 0 ? undefined : 'true'}>
+                <img
+                  src={i === 0 ? `${s.product.image}-960.webp` : undefined}
+                  srcset={i === 0 ? `${s.product.image}-480.webp 480w, ${s.product.image}-960.webp 960w` : undefined}
+                  data-src={`${s.product.image}-960.webp`}
+                  data-srcset={`${s.product.image}-480.webp 480w, ${s.product.image}-960.webp 960w`}
+                  sizes="(min-width: 1000px) min(40vw, 56vh), 88vw"
+                  width="960"
+                  height="960"
+                  alt={`${s.product.name}: concept visual in example colours`}
+                  fetchpriority={i === 0 ? 'high' : undefined}
+                />
+              </div>
+            ))}
+          </div>
+          <div class="showcase-captions">
+            {showcase.map((s, i) => (
+              <p class="showcase-caption" data-hero-caption inert={i !== 0} style={i === 0 ? undefined : 'opacity:0'}>
+                <span>{s.category.name}</span>
+                <a href={categoryUrl(s.category)}>{s.product.name} →</a>
+              </p>
+            ))}
+          </div>
+          <button type="button" class="next-up" data-hero-next>
+            <span class="next-up-thumb" aria-hidden="true">
+              {showcase.map((s, i) => (
+                <img src={`${s.product.image}-240.webp`} width="240" height="240" alt="" loading={i === 1 ? undefined : 'lazy'} decoding="async" data-hero-thumb style={i === 1 ? undefined : 'opacity:0'} />
+              ))}
+            </span>
+            <span class="next-up-text"><small>Next up</small><strong data-hero-next-name>{showcase[1].category.name.replace(' / Football', '')}</strong></span>
+          </button>
+          <div class="showcase-tabs" role="group" aria-label="Featured sports">
+            {showcase.map((s, i) => (
+              <button type="button" aria-pressed={i === 0 ? 'true' : 'false'} data-hero-tab>
+                {s.category.name.replace(' / Football', '')}
+              </button>
+            ))}
+          </div>
+          <p class="showcase-note">Concept visuals in example colours with the Mufasar mark. Every order is made in your colours and branding.</p>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span>Scroll to explore</span><i></i></div>
+
+    </div>
+  </section>
+  </div>
+
+  <div class="hero-strip-wrap">
+  <div class="container">
+    <nav class="hero-strip" aria-label="Start here">
+        <ul>
+          <li><a href="/collections/#team"><span><strong>Team sportswear</strong><small>{team.length} sports</small></span><Icon name="arrow" /></a></li>
+          <li><a href="/collections/#combat"><span><strong>Combat sportswear</strong><small>{combat.length} disciplines</small></span><Icon name="arrow" /></a></li>
+          <li><a href="/collections/#performance"><span><strong>Performance &amp; lifestyle</strong><small>Gym, running, yoga, streetwear</small></span><Icon name="arrow" /></a></li>
+          <li><a href="/custom-manufacturing/"><span><strong>Private label</strong><small>Your brand, our production</small></span><Icon name="arrow" /></a></li>
+        </ul>
+      </nav>
+  </div>
+  </div>
+
+  <div class="marquee" data-marquee aria-hidden="true">
+    <div class="marquee-track">
+      {['Teamwear', 'Fight wear', 'Activewear', 'Private label', 'Sublimation', 'Embroidery', 'Made in Sialkot', 'Export worldwide'].map((w) => <span>{w}</span>)}
+    </div>
+  </div>
+
+  <!-- =================================================== EXPLORE BY SPORT -->
+  <section class="section" aria-labelledby="sports-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Explore by sport</span>
+          <h2 id="sports-title" class="display h2">Team kits for <span class="gold-text">ten sports</span></h2>
+        </div>
+        <p class="lead">Match kits, training and warm-up wear for clubs, schools, leagues and team stores, each made to order in your colours with your crest, sponsors, names and numbers.</p>
+      </div>
+      <div class="sport-grid">
+        {team.map((c) => <SportCard category={c} />)}
+      </div>
+
+      <div class="section-head section-head--split" style="margin-top:clamp(3.5rem,2.5rem + 3vw,6rem)">
+        <div class="stack">
+          <span class="eyebrow">Combat sportswear</span>
+          <h3 class="display h3" style="font-size:var(--step-3)">Fight wear, gis &amp; club apparel</h3>
+        </div>
+        <p class="muted">For gyms, academies, fight teams and combat-sports brands.</p>
+      </div>
+      <div class="combat-band">
+        {combat.map((c) => {
+          const cover = coverProduct(c);
+          return (
+            <a class="combat-link" href={categoryUrl(c)}>
+              <span class="thumb">
+                {cover?.image
+                  ? <img src={`${cover.image}-240.webp`} width="240" height="240" alt="" loading="lazy" decoding="async" />
+                  : <img src={`/assets/hero/${c.hero}-960.webp`} width="960" height="407" alt="" loading="lazy" decoding="async" style="object-fit:cover;border-radius:50%" />}
+              </span>
+              <span><strong>{c.name}</strong><small>{c.summary}</small></span>
+            </a>
+          );
+        })}
+        <a class="combat-link combat-link--all" href="/collections/#combat">
+          <span><strong>All combat</strong><small>Every fight-wear and uniform collection</small></span>
+          <Icon name="arrow" />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ PERFORMANCE & LIFESTYLE -->
+  <section class="section section--light" aria-labelledby="perf-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Performance &amp; lifestyle apparel</span>
+          <h2 id="perf-title" class="display h2">Activewear under <span style="color:var(--gold-700)">your label</span></h2>
+        </div>
+        <p class="lead">Gym, fitness, compression, yoga, running and streetwear for activewear brands, gyms and retailers, made in your fabric, colours and fit.</p>
+      </div>
+      <div class="perf-layout">
+        <a class="perf-feature" href={categoryUrl('activewear')}>
+          <img src="/assets/hero/activewear-1600.webp" srcset="/assets/hero/activewear-960.webp 960w, /assets/hero/activewear-1600.webp 1600w" sizes="(min-width: 1000px) 45vw, 100vw" width="1600" height="679" alt="Athletes running in performance training wear at dusk" loading="lazy" decoding="async" style="object-position:58% 50%" />
+          <span class="eyebrow">Full range</span>
+          <h3>Activewear collection</h3>
+          <p>{categoryBySlug.activewear.products.length} performance styles, from compression layers to tracksuits.</p>
+          <span class="link-arrow" style="margin-top:1rem">Explore activewear <Icon name="arrow" /></span>
+        </a>
+        <div class="perf-tiles">
+          {perfTiles.map((c) => {
+            const cover = coverProduct(c);
+            return (
+              <a class="perf-tile" href={categoryUrl(c)}>
+                <span class="m">{cover?.image && <img src={`${cover.image}-480.webp`} srcset={`${cover.image}-240.webp 240w, ${cover.image}-480.webp 480w`} sizes="(min-width: 900px) 18vw, 46vw" width="480" height="480" alt="" loading="lazy" decoding="async" />}</span>
+                <span>{c.name}<Icon name="arrow" /></span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================================== CUSTOM MANUFACTURING -->
+  <section class="section" aria-labelledby="custom-title">
+    <div class="container custom-layout">
+      <div class="custom-copy">
+        <span class="eyebrow">Custom manufacturing</span>
+        <h2 id="custom-title" class="display h2">Your design. <span class="gold-text">Our production.</span></h2>
+        <p class="lead">Send a logo, a sketch or a full tech pack. We turn it into a specification and a physical sample for you to approve, then produce the full order to that sample.</p>
+        <ul class="tick-list">
+          <li><Icon name="check" />Any colour, your crest and sponsors</li>
+          <li><Icon name="check" />Player names and numbers from your squad list</li>
+          <li><Icon name="check" />Private label for brands and distributors</li>
+        </ul>
+        <div class="btn-row" style="margin-top:.5rem">
+          <a class="btn btn--primary" href="/design-your-kit/">Start Your Custom Order <Icon name="arrow" /></a>
+          <a class="btn btn--ghost" href="/custom-manufacturing/">How it works</a>
+        </div>
+      </div>
+      <div>
+        <div class="option-grid">
+          {customOptions.map((o) => {
+            const img = craftSources(o.img);
+            return (
+              <article class="option-card">
+                <div class="m"><img src={img.src} srcset={img.srcset} sizes="(min-width: 1000px) 28vw, (min-width: 620px) 50vw, 100vw" width={img.width} height={img.height} alt="" loading="lazy" decoding="async" /></div>
+                <div class="b"><h3>{o.title}</h3><p>{o.body}</p></div>
+              </article>
+            );
+          })}
+        </div>
+        <p class="illustrative">Images are illustrative examples of decoration and finishing techniques, not photographs of a specific Mufasar order.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =================================================== FEATURED PRODUCTS -->
+  <section class="section section--paper" aria-labelledby="featured-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Featured products</span>
+          <h2 id="featured-title" class="display h2">Made to order, in your colours</h2>
+        </div>
+        <div class="stack">
+          <p class="lead">Pricing depends on fabric, decoration and quantity, so every product is quoted to your specification. {allProducts.length} styles across {categories.length} collections.</p>
+          <a class="link-arrow" href="/collections/">Browse all collections <Icon name="arrow" /></a>
+        </div>
+      </div>
+      <div class="product-grid">
+        {featuredProducts.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================== WHY MUFASAR -->
+  <section class="section section--light" aria-labelledby="why-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why {company.name}</span>
+        <h2 id="why-title" class="display h2">A manufacturing partner, not a middleman</h2>
+      </div>
+      <div class="why-grid">
+        {reasons.map((r) => (
+          <article class="why-item reveal">
+            <span class="ic"><Icon name={r.icon} /></span>
+            <h3>{r.title}</h3>
+            <p>{r.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================== PROCESS -->
+  <section class="section" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">How an order runs</span>
+          <h2 id="process-title" class="display h2">From brief to <span class="gold-text">dispatch</span></h2>
+        </div>
+        <p class="lead">Six clear steps, with a physical sample approved before anything goes into bulk production. Timings are typical and confirmed for each order.</p>
+      </div>
+      <ProcessSteps />
+      <div class="btn-row" style="margin-top:2rem">
+        <a class="link-arrow" href="/custom-manufacturing/#quality">See the quality checklist <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================== TRUST -->
+  <section class="section section--deep" aria-labelledby="trust-title">
+    <div class="container trust">
+      <div class="stack" style="--stack:1.25rem">
+        <span class="eyebrow">Company information</span>
+        <h2 id="trust-title" class="display h2">Talk directly to the manufacturer</h2>
+        <p class="lead">{company.name} is a {company.legalDescriptor.toLowerCase()} based in {company.city}, {company.country}, one of the world's established centres of sportswear production. We work with buyers in {company.markets.join(', ').replace(/, ([^,]*)$/, ' and $1')}.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="/about/">About us <Icon name="arrow" /></a>
+          <a class="btn btn--ghost" href={whatsappUrl('Hello Mufasar Enterprises, I would like to discuss a sportswear order.')} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+        </div>
+      </div>
+      <div class="trust-card">
+        <img class="trust-logo" src="/assets/brand/logo-white-260.webp" width="260" height="220" alt="Mufasar Enterprises" loading="lazy" decoding="async" />
+        <dl>
+          <div><dt>Registered address</dt><dd>{company.address.street}, {company.address.locality} {company.address.postalCode}, {company.address.country}</dd></div>
+          <div><dt>Email</dt><dd><a href={`mailto:${company.email}`}>{company.email}</a></dd></div>
+          <div><dt>WhatsApp / phone</dt><dd><a href={whatsappUrl()} target="_blank" rel="noopener">{company.whatsapp.display}</a></dd></div>
+          <div><dt>Payment terms</dt><dd>{facts.payment.value}</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <FinalCta />
+</Base>
+
+<script>
+  import '../scripts/hero-motion';
+</script>

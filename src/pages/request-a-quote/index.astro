@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuoteForm from '../../components/QuoteForm.astro';
+import { company, facts, whatsappUrl } from '../../data/company';
+---
+<Base
+  title="Request a Quote"
+  description="Request a quotation for custom sportswear, teamwear, combat sportswear or private-label apparel from Mufasar Enterprises, Sialkot, Pakistan."
+>
+  <section class="page-hero page-hero--plain" style="padding-bottom:2.5rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Request a quote' }]} />
+      <span class="eyebrow">Quotation</span>
+      <h1 class="display" style="margin-top:1rem">Request a <span class="gold-text">quote</span></h1>
+      <p class="lead">{facts.responseTime.value}. Tell us the product, quantity and branding, and we will price it for your specification.</p>
+    </div>
+  </section>
+  <section class="section section--paper" style="padding-top:clamp(2rem,1rem + 3vw,4rem)">
+    <div class="container split quote-split" style="align-items:start">
+      <QuoteForm id="quote" heading="Your requirements" intro="Fields marked optional can be left blank. Everything else helps us price accurately." />
+      <aside class="stack" style="--stack:1.25rem">
+        <h2 class="display" style="font-size:var(--step-2)">What happens next</h2>
+        <ol class="qc-list" style="grid-template-columns:1fr">
+          <li>We review your brief and reply with a quotation.</li>
+          <li>You approve materials, measurements, branding and packaging.</li>
+          <li>We produce a physical sample, typically in {facts.sampleLeadTime.value}.</li>
+          <li>After sample approval and deposit, bulk production typically takes {facts.bulkLeadTime.value}.</li>
+        </ol>
+        <p class="muted">Prefer to talk first?</p>
+        <div class="btn-row">
+          <a class="btn btn--outline-dark btn--sm" href={`mailto:${company.email}`}><Icon name="mail" /> Email</a>
+          <a class="btn btn--outline-dark btn--sm" href={whatsappUrl()} target="_blank" rel="noopener"><Icon name="whatsapp" /> WhatsApp</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+</Base>
+<script>
+  const p = new URLSearchParams(location.search).get('product');
+  const input = document.querySelector<HTMLInputElement>('#quote-product');
+  if (p && input && !input.value) input.value = p.slice(0, 120);
+</script>

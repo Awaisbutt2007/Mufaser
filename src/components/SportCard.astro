@@ -1,0 +1,23 @@
+---
+import Icon from './Icon.astro';
+import { categoryUrl, coverProduct, heroSources, type Category } from '../data/catalog';
+
+interface Props {
+  category: Category;
+  showGarment?: boolean;
+}
+const { category, showGarment = true } = Astro.props;
+const hero = category.hero ? heroSources(category.hero) : null;
+const cover = coverProduct(category);
+---
+<a class="sport-card" href={categoryUrl(category)}>
+  {hero && (
+    <img class="bg" src={`/assets/hero/${category.hero}-960.webp`} width="960" height="407" alt="" loading="lazy" decoding="async" style={`object-position:${category.heroPosition}`} />
+  )}
+  {showGarment && cover?.image && (
+    <img class="garment" src={`${cover.image}-480.webp`} srcset={`${cover.image}-240.webp 240w, ${cover.image}-480.webp 480w`} sizes="(min-width: 1100px) 200px, (min-width: 720px) 25vw, 38vw" width="480" height="480" alt="" loading="lazy" decoding="async" />
+  )}
+  <h3>{category.name}</h3>
+  <p>{category.summary}</p>
+  <span class="go">Explore <Icon name="arrow" /></span>
+</a>

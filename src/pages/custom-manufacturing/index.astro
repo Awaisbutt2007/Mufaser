@@ -1,0 +1,151 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import FaqList from '../../components/FaqList.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { craftSources } from '../../data/catalog';
+import { facts, generalFaqs, qcChecklist } from '../../data/company';
+
+const methods = [
+  { slug: 'sublimation', title: 'Sublimation', body: "Dye goes into the polyester fibres, so full-colour designs won't crack or peel.", best: 'Soccer, basketball, volleyball and rugby jerseys' },
+  { slug: 'embroidery', title: 'Embroidery', body: 'Stitched crests and logos with a raised, premium finish.', best: 'Polos, jackets, gis and crests' },
+  { slug: 'screen-print', title: 'Screen print', body: 'Layered inks for bold, durable prints on cotton and blends.', best: 'Supporter tees, hoodies and streetwear' },
+  { slug: 'heat-transfer', title: 'Heat transfer', body: 'Clean, flexible names and numbers applied player by player.', best: 'Player names and numbers' },
+  { slug: 'tackle-twill', title: 'Tackle twill', body: 'Cut fabric numbers and letters stitched onto the garment.', best: 'American football and ice hockey' },
+  { slug: 'woven-labels', title: 'Private label', body: 'Woven neck labels, hangtags and packaging with your own branding.', best: 'Brands and distributors' },
+];
+const fabrics = [
+  ['fabric-pique', 'Piqué'], ['fabric-heavy-jersey', 'Heavy jersey'], ['fabric-fleece', 'Fleece'],
+  ['fabric-french-terry', 'French terry'], ['fabric-nylon', 'Nylon'], ['fabric-twill', 'Twill'],
+];
+const services = [
+  { icon: 'palette', title: 'Custom teamwear', body: 'Full kits in your colours with crest, sponsors, names and numbers for clubs, schools and leagues.' },
+  { icon: 'tag', title: 'Private label', body: 'Your designs and tech packs produced under your own label, with your trims and packaging.' },
+  { icon: 'layers', title: 'Development & sampling', body: `A tech pack and a physical sample, typically in ${facts.sampleLeadTime.value} once artwork and materials are confirmed.` },
+  { icon: 'ship', title: 'Export', body: facts.shipping.value + '.' },
+] as const;
+---
+<Base
+  title="Custom Sportswear & Private Label Manufacturing"
+  description="How Mufasar Enterprises manufactures custom sportswear and private-label apparel: decoration methods, fabrics, sampling, the six-step order process and quality checks."
+>
+  <section class="page-hero">
+    <img class="page-hero-bg" src="/assets/craft/process-sewing-1200.webp" srcset="/assets/craft/process-sewing-640.webp 640w, /assets/craft/process-sewing-1200.webp 1200w" sizes="100vw" width="1200" height="1200" alt="" fetchpriority="high" style="object-position:50% 40%" />
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Custom manufacturing' }]} />
+      <span class="eyebrow">Custom manufacturing</span>
+      <h1 class="display" style="margin-top:1rem">Your colours. Your crest. <span class="gold-text">Your label.</span></h1>
+      <p class="lead">Every order is made to your design: your colours, your crest and sponsors, every player's name and number, or your own private label.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/design-your-kit/">Start Your Custom Order <Icon name="arrow" /></a>
+        <a class="btn btn--ghost" href="/request-a-quote/">Request a Quote</a>
+      </div>
+    </div>
+    <p class="photo-credit">Illustrative production image.</p>
+  </section>
+
+  <section class="section section--light" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we do</span>
+        <h2 id="services-title" class="display h2">Services</h2>
+      </div>
+      <div class="why-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))">
+        {services.map((s) => (
+          <article class="why-item"><span class="ic"><Icon name={s.icon} /></span><h3>{s.title}</h3><p>{s.body}</p></article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="methods-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Decoration</span>
+          <h2 id="methods-title" class="display h2">Decoration &amp; branding methods</h2>
+        </div>
+        <p class="lead">Not sure which method suits your design? Tell us the garment and the right method is recommended with your quotation.</p>
+      </div>
+      <div class="option-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))">
+        {methods.map((m) => {
+          const img = craftSources(m.slug);
+          return (
+            <article class="option-card">
+              <div class="m"><img src={img.src} srcset={img.srcset} sizes="(min-width: 1000px) 33vw, 100vw" width={img.width} height={img.height} alt={`${m.title} example`} loading="lazy" decoding="async" /></div>
+              <div class="b"><h3>{m.title}</h3><p>{m.body}</p><p class="small" style="color:var(--gold-400)">Best for: {m.best}</p></div>
+            </article>
+          );
+        })}
+      </div>
+      <p class="illustrative">Images illustrate each technique and are not photographs of a specific Mufasar order.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="fabric-title">
+    <div class="container split">
+      <div class="stack" style="--stack:1.25rem">
+        <span class="eyebrow">Fabric selection</span>
+        <h2 id="fabric-title" class="display h2">The right fabric for the garment</h2>
+        <p class="lead">Tell us the composition, weight and finish you need, or send a swatch. Fabric is agreed with you and confirmed on the physical sample before bulk production.</p>
+        <ul class="tick-list">
+          <li><Icon name="check" />Performance knits for match and training wear</li>
+          <li><Icon name="check" />Cotton and blends for supporter and streetwear</li>
+          <li><Icon name="check" />Colours matched to your Pantone references or swatch</li>
+        </ul>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.5rem">
+        {fabrics.map(([slug, label]) => {
+          const img = craftSources(slug);
+          return (
+            <figure style="margin:0;position:relative">
+              <img src={img.src} width={img.width} height={img.height} alt={`${label} fabric example`} loading="lazy" decoding="async" style="aspect-ratio:1;object-fit:cover;border-radius:var(--radius)" />
+              <figcaption class="small" style="margin-top:.35rem;font-weight:650">{label}</figcaption>
+            </figure>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="process-title" id="process">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Order process</span>
+          <h2 id="process-title" class="display h2">Six steps, one approved sample</h2>
+        </div>
+        <p class="lead">Timings are typical and confirmed for each order. Payment: {facts.payment.value.toLowerCase()}.</p>
+      </div>
+      <ProcessSteps />
+    </div>
+  </section>
+
+  <section class="section section--light" aria-labelledby="quality-title" id="quality">
+    <div class="container split" style="align-items:start">
+      <div class="stack" style="--stack:1.25rem">
+        <span class="eyebrow">Quality control</span>
+        <h2 id="quality-title" class="display h2">Checked before it ships</h2>
+        <p class="lead">The inspection points every order passes before it leaves the factory, checked against your approved sample and artwork.</p>
+        <img src="/assets/craft/process-quality-1200.webp" srcset="/assets/craft/process-quality-640.webp 640w, /assets/craft/process-quality-1200.webp 1200w" sizes="(min-width: 960px) 45vw, 100vw" width="1200" height="1200" alt="Quality inspection of a finished garment (illustrative)" loading="lazy" decoding="async" style="border-radius:var(--radius);aspect-ratio:4/3;object-fit:cover;margin-top:1.5rem" />
+      </div>
+      <ol class="qc-list">
+        {qcChecklist.map((q) => <li>{q}</li>)}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--paper" aria-labelledby="faq-title">
+    <div class="container" style="max-width:900px">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title" class="display h2">Before you order</h2>
+      </div>
+      <FaqList items={generalFaqs} />
+    </div>
+  </section>
+
+  <FinalCta image="basketball" />
+</Base>

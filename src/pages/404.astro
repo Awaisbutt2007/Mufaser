@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Page not found" description="The page you were looking for could not be found." noindex>
+  <section class="page-hero page-hero--plain" style="min-height:70vh;display:flex;align-items:center">
+    <div class="container">
+      <span class="eyebrow">Error 404</span>
+      <h1 class="display" style="margin-top:1rem">Page not found</h1>
+      <p class="lead">The page may have moved. Browse the collections or send us your requirements directly.</p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/collections/">Explore Collections <Icon name="arrow" /></a>
+        <a class="btn btn--ghost" href="/request-a-quote/">Request a Quote</a>
+      </div>
+    </div>
+  </section>
+</Base>

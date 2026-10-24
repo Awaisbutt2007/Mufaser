@@ -1,0 +1,26 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  title?: string;
+  body?: string;
+  image?: string;
+}
+const {
+  title = "Let's build your next sportswear collection.",
+  body = 'Send your brief, references and quantities. We reply with a quotation and the next steps, normally within one business day.',
+  image = 'american-football',
+} = Astro.props;
+---
+<section class="final-cta" aria-labelledby="final-cta-title">
+  <img class="bg" src={`/assets/hero/${image}-1600.webp`} width="1600" height="679" alt="" loading="lazy" decoding="async" />
+  <div class="container reveal">
+    <span class="eyebrow">Start a project</span>
+    <h2 id="final-cta-title" class="display" style="margin-top:1rem">{title}</h2>
+    <p>{body}</p>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/request-a-quote/">Request a Quote <Icon name="arrow" /></a>
+      <a class="btn btn--ghost" href="/contact/">Discuss Your Requirements</a>
+    </div>
+  </div>
+</section>

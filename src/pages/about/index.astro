@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProcessSteps from '../../components/ProcessSteps.astro';
+import FinalCta from '../../components/FinalCta.astro';
+import { company, facts } from '../../data/company';
+import { categories, groups, categoriesIn } from '../../data/catalog';
+
+const confirmedExtras = [facts.chamberMembership].filter((f) => f.confirmed).map((f) => f.value);
+const markets = company.markets.join(', ').replace(/, ([^,]*)$/, ' and $1');
+---
+<Base
+  title="About Us"
+  description={`${company.name} is a sportswear and textile manufacturer and exporter in ${company.city}, ${company.country}, producing custom teamwear, combat sportswear, activewear and private-label apparel.`}
+>
+  <section class="page-hero">
+    <img class="page-hero-bg" src="/assets/hero/cricket-1600.webp" srcset="/assets/hero/cricket-960.webp 960w, /assets/hero/cricket-1600.webp 1600w, /assets/hero/cricket-2560.webp 2560w" sizes="100vw" width="1600" height="679" alt="" fetchpriority="high" style="object-position:60% 50%" />
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'About us' }]} />
+      <span class="eyebrow">About {company.name}</span>
+      <h1 class="display" style="margin-top:1rem">From fabric to <span class="gold-text">finished kit</span></h1>
+      <p class="lead">A {company.legalDescriptor.toLowerCase()} based in {company.city}, {company.country}.</p>
+    </div>
+  </section>
+
+  <section class="section section--light">
+    <div class="container split" style="align-items:start">
+      <div class="stack" style="--stack:1.25rem">
+        <span class="eyebrow">Who we are</span>
+        <h2 class="display h2">One team from first message to delivery</h2>
+      </div>
+      <div class="stack prose" style="--stack:1.1rem">
+        <p>{company.name} manufactures and exports sports and textile products, producing to buyer specification for brands, teams, distributors and private-label programmes. {facts.inHouse.value}, and every order is confirmed against an approved sample before it ships.</p>
+        <p>You work with one team from your first message to delivery: your mockup is prepared, a sample is made for you to check, then your full order is produced to that sample.</p>
+        <p>We are based in {company.city}, Pakistan, a long-established centre of sportswear and sporting-goods manufacturing, and work with buyers in {markets}.</p>
+        {confirmedExtras.map((x) => <p>{x}.</p>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="range-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What we make</span>
+        <h2 id="range-title" class="display h2">{categories.length} collections, three families</h2>
+      </div>
+      <div class="why-grid" style="background:var(--line-dark);border-color:var(--line-dark)">
+        {groups.map((g) => (
+          <article class="why-item" style="background:var(--navy-900)">
+            <h3 style="color:var(--text-on-dark)">{g.name}</h3>
+            <p style="color:var(--text-on-dark-muted)">{categoriesIn(g.id).map((c) => c.name).join(', ')}.</p>
+            <a class="link-arrow" href={`/collections/#${g.id}`}>Explore <Icon name="arrow" /></a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--navy-850)" aria-labelledby="process-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">How we work</span>
+        <h2 id="process-title" class="display h2">Our order process</h2>
+      </div>
+      <ProcessSteps />
+    </div>
+  </section>
+
+  <FinalCta image="soccer" />
+</Base>

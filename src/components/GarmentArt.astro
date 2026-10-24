@@ -1,0 +1,34 @@
+---
+/**
+ * Technical line drawing used where no product imagery exists yet.
+ * Intentionally schematic so it can never be mistaken for a product photograph.
+ */
+import type { Garment } from '../data/catalog';
+
+interface Props {
+  garment: Garment;
+  class?: string;
+}
+
+const shapes: Record<Garment, string> = {
+  jersey: 'M34 14 20 20 8 40l12 7 6-10v51h48V37l6 10 12-7-12-20-14-6c-2 7-8 11-16 11s-14-4-16-11z',
+  tee: 'M36 16 22 21 10 38l11 7 5-8v49h48V38l5 7 11-7-12-17-14-5c-3 5-8 8-14 8s-11-3-14-8z',
+  singlet: 'M36 12v14c0 8-6 14-6 22v40h40V48c0-8-6-14-6-22V12h-6v12c0 5-4 9-8 9s-8-4-8-9V12z',
+  shorts: 'M22 26h56l6 50H58l-8-28-8 28H16z',
+  trousers: 'M30 10h40l6 82H58l-8-58-8 58H24z',
+  socks: 'M30 10h16v52l12 12c4 4 2 14-6 14H30zM56 10h16v52',
+  jacket: 'M36 14 20 20 10 44v44h14V40l2 48h48l2-48v48h14V44L80 20l-16-6-14 10zM50 24v64',
+  hoodie: 'M38 22c0-10 6-14 12-14s12 4 12 14l16 6 10 24v34H76V52l-2 36H26l-2-36v34H12V52l10-24zM50 30v58M40 66h20',
+  skirt: 'M30 18h40l12 66H18zM38 18l-4 66M50 18v66M62 18l4 66',
+  cap: 'M18 58c0-20 14-34 32-34s32 14 32 34zM82 58h12c0 6-6 8-12 8H18',
+  gi: 'M36 12 20 18 8 46l12 6 6-14v50h48V38l6 14 12-6-12-28-16-6-14 30zM26 60h48',
+  belt: 'M10 46h80v10H10zM46 42h10v18H46zM50 60l-8 26M54 60l8 26',
+  bra: 'M22 24c4 14 6 22 6 30h44c0-8 2-16 6-30M28 54c2 10 10 14 22 14s20-4 22-14M36 24l14 18 14-18',
+  leggings: 'M32 10h36l4 82H58l-8-62-8 62H28z',
+  set: 'M30 12c4 10 4 14 4 20h32c0-6 0-10 4-20M34 32c4 6 10 8 16 8s12-2 16-8M32 50h36l4 42H58l-8-26-8 26H28z',
+};
+const { garment, class: cls } = Astro.props;
+---
+<svg class={cls} viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+  <path d={shapes[garment]} />
+</svg>

@@ -1,0 +1,15 @@
+---
+import { processSteps } from '../data/company';
+---
+<ol class="process">
+  {processSteps.map((s) => (
+    <li class="reveal">
+      <span class="n" aria-hidden="true">{s.n}</span>
+      <div class="t"><h3>{s.title}</h3><span class="time">{s.time}</span></div>
+      <dl>
+        <div><dt>You</dt><dd>{s.you}</dd></div>
+        <div><dt>We</dt><dd>{s.we}</dd></div>
+      </dl>
+    </li>
+  ))}
+</ol>

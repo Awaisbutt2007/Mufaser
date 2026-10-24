@@ -1,0 +1,294 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { categories, groups } from '../../data/catalog';
+import { company, facts } from '../../data/company';
+
+const sports = categories.filter((c) => c.kind === 'sport' && c.products.length);
+const presets = [
+  ['Navy', '#1f2e4d'], ['Black', '#111111'], ['White', '#f4f4f4'], ['Royal', '#1f4fbf'], ['Sky', '#5aa9e6'],
+  ['Red', '#c8102e'], ['Maroon', '#7a1f2b'], ['Orange', '#f26b1d'], ['Gold', '#c8a55a'], ['Yellow', '#f5c400'],
+  ['Green', '#0f7a3d'], ['Purple', '#5b2a86'],
+];
+const branding = ['Crest or logo', 'Player names', 'Player numbers', 'Sponsor logos', 'Private label (woven labels, hangtags)', 'Custom packaging'];
+const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print', 'Heat transfer', 'Tackle twill'];
+---
+<Base
+  title="Design Your Kit: Custom Kit Request"
+  description="Choose your sport, garments, colours, sizes and branding, then send the specification to Mufasar Enterprises for a quotation."
+>
+  <section class="page-hero page-hero--plain" style="padding-bottom:2.5rem">
+    <div class="container">
+      <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Design your kit' }]} />
+      <span class="eyebrow">Kit request</span>
+      <h1 class="display" style="margin-top:1rem">Design your <span class="gold-text">kit</span></h1>
+      <p class="lead">Choose the sport, garments, colours and branding. We turn your choices into a mockup and a quotation, then a physical sample for you to approve before production.</p>
+    </div>
+  </section>
+
+  <section class="section section--paper" style="padding-top:clamp(2rem,1rem + 3vw,4rem)">
+    <div class="container kit-layout">
+      <div class="form-panel" id="kit">
+        <form data-inquiry-form data-kit-form aria-label="Kit specification" novalidate>
+          <fieldset class="kit-step">
+            <legend><span>01</span>Sport</legend>
+            <p class="desc">Pick the collection your kit belongs to.</p>
+            <div class="field" style="margin-top:.8rem">
+              <label for="kit-sport">Sport or collection</label>
+              <select id="kit-sport" name="product" required data-sport aria-describedby="kit-sport-err">
+                {groups.map((g) => (
+                  <optgroup label={g.name}>
+                    {sports.filter((s) => s.group === g.id).map((s) => <option value={`${s.name} kit`} data-slug={s.slug}>{s.name}</option>)}
+                  </optgroup>
+                ))}
+              </select>
+              <p class="field-error" id="kit-sport-err" data-error-for="product" hidden></p>
+            </div>
+          </fieldset>
+
+          <fieldset class="kit-step">
+            <legend><span>02</span>Garments</legend>
+            <p class="desc">Select every garment you need. You can add more in the notes.</p>
+            {sports.map((s) => (
+              <div class="choice-grid" data-garments={s.slug}>
+                {s.products.map((p) => (
+                  <label class="choice">
+                    <input type="checkbox" name="garments" value={p.name} data-summary="Garments"  />
+                    {p.image && <img src={`${p.image}-240.webp`} width="42" height="42" alt="" loading="lazy" decoding="async" />}
+                    {p.name}
+                  </label>
+                ))}
+              </div>
+            ))}
+          </fieldset>
+
+          <fieldset class="kit-step">
+            <legend><span>03</span>Colours</legend>
+            <p class="desc">Pick your main, second and accent colours. Exact shades are matched to your Pantone references or a physical swatch.</p>
+            <div class="colour-row">
+              {[['primary', 'Main colour', '#1f2e4d'], ['secondary', 'Second colour', '#f4f4f4'], ['accent', 'Accent / trim', '#c8a55a']].map(([k, label, v]) => (
+                <div class="colour-field">
+                  <label class="label" for={`kit-${k}`}>{label}</label>
+                  <div class="pick">
+                    <input type="color" id={`kit-${k}`} name={`colour-${k}`} value={v} data-colour={k} data-summary={label} />
+                    <output for={`kit-${k}`} data-colour-out={k}>{v}</output>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p class="label small" style="margin-top:1rem;font-weight:700">Quick colours <span class="muted" style="font-weight:500">(applies to the selected colour slot)</span></p>
+            <div class="field" style="margin-top:.4rem;max-width:260px">
+              <label class="visually-hidden" for="kit-slot">Colour slot</label>
+              <select id="kit-slot" data-slot>
+                <option value="primary">Apply to main colour</option>
+                <option value="secondary">Apply to second colour</option>
+                <option value="accent">Apply to accent / trim</option>
+              </select>
+            </div>
+            <div class="swatches" role="group" aria-label="Quick colours">
+              {presets.map(([n, hex]) => (
+                <button type="button" class="swatch" style={`background:${hex}`} data-swatch={hex} aria-label={n} title={n}></button>
+              ))}
+            </div>
+          </fieldset>
+
+          <fieldset class="kit-step">
+            <legend><span>04</span>Sizes</legend>
+            <p class="desc">{facts.sizes.value} are available.</p>
+            <div class="choice-grid">
+              <label class="choice"><input type="checkbox" name="sizes" value="Youth sizes" data-summary="Sizes" />Youth sizes</label>
+              <label class="choice"><input type="checkbox" name="sizes" value="Adult sizes" data-summary="Sizes" checked />Adult sizes</label>
+              <label class="choice"><input type="checkbox" name="sizes" value="Sizing kit before ordering" data-summary="Sizes" />Send a sizing kit first</label>
+            </div>
+          </fieldset>
+
+          <fieldset class="kit-step">
+            <legend><span>05</span>Branding</legend>
+            <p class="desc">What should appear on the garments?</p>
+            <div class="choice-grid">
+              {branding.map((b) => <label class="choice"><input type="checkbox" name="branding" value={b} data-summary="Branding" />{b}</label>)}
+            </div>
+            <p class="label small" style="margin-top:1.1rem;font-weight:700">Decoration preference</p>
+            <div class="choice-grid">
+              {methods.map((m, i) => <label class="choice"><input type="radio" name="method" value={m} data-summary="Decoration" checked={i === 0} />{m}</label>)}
+            </div>
+          </fieldset>
+
+          <fieldset class="kit-step">
+            <legend><span>06</span>Quantity &amp; timing</legend>
+            <div class="form-grid" style="margin-top:.8rem">
+              <div class="field">
+                <label for="kit-quantity">Estimated quantity (pieces)</label>
+                <input id="kit-quantity" name="quantity" type="number" inputmode="numeric" min="1" max="1000000" step="1" required placeholder="e.g. 120" aria-describedby="kit-quantity-err" data-qty />
+                <p class="field-error" id="kit-quantity-err" data-error-for="quantity" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-date">Target delivery date <span class="opt">(optional)</span></label>
+                <input id="kit-date" name="targetDate" type="date" data-summary="Target delivery" />
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="kit-step" style="border-bottom:0">
+            <legend><span>07</span>Your details</legend>
+            <div class="form-grid" style="margin-top:.8rem">
+              <div class="field">
+                <label for="kit-name">Your name</label>
+                <input id="kit-name" name="name" autocomplete="name" maxlength="120" required aria-describedby="kit-name-err" />
+                <p class="field-error" id="kit-name-err" data-error-for="name" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-email">Business email</label>
+                <input id="kit-email" name="email" type="email" autocomplete="email" maxlength="254" required aria-describedby="kit-email-err" />
+                <p class="field-error" id="kit-email-err" data-error-for="email" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-company">Club, school or company <span class="opt">(optional)</span></label>
+                <input id="kit-company" name="company" autocomplete="organization" maxlength="160" />
+                <p class="field-error" data-error-for="company" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-country">Country</label>
+                <input id="kit-country" name="country" autocomplete="country-name" maxlength="100" required aria-describedby="kit-country-err" />
+                <p class="field-error" id="kit-country-err" data-error-for="country" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-phone">WhatsApp or phone <span class="opt">(optional)</span></label>
+                <input id="kit-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" placeholder="Include country code" aria-describedby="kit-phone-err" />
+                <p class="field-error" id="kit-phone-err" data-error-for="phone" hidden></p>
+              </div>
+              <div class="field">
+                <label for="kit-reply">Preferred reply</label>
+                <select id="kit-reply" name="preferredContact">
+                  <option value="email">Email</option>
+                  <option value="whatsapp">WhatsApp</option>
+                  <option value="phone">Phone</option>
+                </select>
+              </div>
+              <div class="field wide">
+                <label for="kit-message">Notes <span class="opt">(optional)</span></label>
+                <textarea id="kit-message" name="message" maxlength="4000" placeholder="Design ideas, reference kits, fabric preferences, squad list details…" aria-describedby="kit-message-err"></textarea>
+                <p class="field-error" id="kit-message-err" data-error-for="message" hidden></p>
+              </div>
+              <div class="wide">
+                <label class="check">
+                  <input type="checkbox" name="consent" required aria-describedby="kit-consent-err" />
+                  <span>I agree that {company.name} may use these details to prepare and follow up this quotation. See the <a href="/privacy/">privacy policy</a>.</span>
+                </label>
+                <p class="field-error" id="kit-consent-err" data-error-for="consent" hidden></p>
+              </div>
+              <div class="honeypot" aria-hidden="true"><label>Website <input name="website" tabindex="-1" autocomplete="off" /></label></div>
+            </div>
+          </fieldset>
+          <div class="form-actions">
+            <button class="btn btn--dark" type="submit">Send kit request <Icon name="arrow" /></button>
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+          </div>
+          <p class="form-privacy">Logos and artwork can be emailed to <a href={`mailto:${company.email}`}>{company.email}</a> after you submit.</p>
+        </form>
+        <div class="form-success" data-form-success hidden tabindex="-1" role="status">
+          <span class="ok"><Icon name="check" /></span>
+          <h3>Kit request received</h3>
+          <p>Thank you. Your specification has been recorded. We will reply with a mockup plan and quotation, normally within one business day.</p>
+          <p class="small muted">Your reference: <code data-reference></code></p>
+          <div class="btn-row"><button class="btn btn--outline-dark btn--sm" type="button" data-form-again>Start another kit</button></div>
+        </div>
+      </div>
+
+      <aside class="kit-preview" aria-label="Kit summary">
+        <p class="eyebrow">Your kit</p>
+        <div class="canvas">
+          <svg class="kit-svg" viewBox="0 0 200 200" role="img" aria-label="Schematic colour preview of a jersey">
+            <path data-part="secondary" d="M62 34 30 48 10 92l26 14 12-24v100h104V82l12 24 26-14-20-44-32-14z" />
+            <path data-part="primary" d="M62 34c4 12 18 20 38 20s34-8 38-20l14 6v142H48V40z" />
+            <path data-part="accent" d="M62 34c4 12 18 20 38 20s34-8 38-20l-6-2c-4 10-16 16-32 16s-28-6-32-16zM48 120h104v8H48z" />
+            <path d="M62 34 30 48 10 92l26 14 12-24v100h104V82l12 24 26-14-20-44-32-14c-4 12-18 20-38 20s-34-8-38-20z" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="1.2" />
+          </svg>
+        </div>
+        <dl>
+          <dt>Sport</dt><dd data-out="sport">—</dd>
+          <dt>Garments</dt><dd data-out="garments">None selected</dd>
+          <dt>Quantity</dt><dd data-out="qty">—</dd>
+        </dl>
+        <p class="note">Schematic colour preview to help describe your kit. It is not a 3D configurator; your mockup is prepared by our team with the quotation.</p>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<script>
+  import '../../scripts/forms';
+
+  const form = document.querySelector<HTMLFormElement>('[data-kit-form]')!;
+  const sport = form.querySelector<HTMLSelectElement>('[data-sport]')!;
+  const lists = [...form.querySelectorAll<HTMLElement>('[data-garments]')];
+  const svg = document.querySelector('.kit-svg')!;
+  const out = (k: string) => document.querySelector<HTMLElement>(`[data-out="${k}"]`)!;
+  let slot = 'primary';
+
+  function slugOf() { return sport.selectedOptions[0]?.dataset.slug ?? ''; }
+
+  function syncSport() {
+    const slug = slugOf();
+    lists.forEach((l) => {
+      const on = l.dataset.garments === slug;
+      l.hidden = !on;
+      if (!on) l.querySelectorAll('input').forEach((i) => { i.checked = false; i.disabled = true; });
+      else l.querySelectorAll('input').forEach((i) => { i.disabled = false; });
+    });
+    out('sport').textContent = sport.selectedOptions[0]?.textContent ?? '—';
+    syncGarments();
+  }
+  function syncGarments() {
+    const picked = [...form.querySelectorAll<HTMLInputElement>('input[name="garments"]:checked')].map((i) => i.value);
+    out('garments').textContent = picked.length ? picked.join(', ') : 'None selected';
+  }
+  function syncColour(input: HTMLInputElement) {
+    const part = input.dataset.colour!;
+    svg.querySelectorAll<SVGPathElement>(`[data-part="${part}"]`).forEach((p) => p.setAttribute('fill', input.value));
+    form.querySelector<HTMLOutputElement>(`[data-colour-out="${part}"]`)!.value = input.value;
+  }
+
+  sport.addEventListener('change', syncSport);
+  form.addEventListener('change', (e) => {
+    const t = e.target as HTMLInputElement;
+    if (t.name === 'garments') syncGarments();
+  });
+  form.querySelectorAll<HTMLInputElement>('[data-colour]').forEach((i) => {
+    syncColour(i);
+    i.addEventListener('input', () => syncColour(i));
+  });
+  form.querySelector<HTMLSelectElement>('[data-slot]')!.addEventListener('change', (e) => { slot = (e.target as HTMLSelectElement).value; });
+  form.querySelectorAll<HTMLButtonElement>('[data-swatch]').forEach((b) => b.addEventListener('click', () => {
+    const input = form.querySelector<HTMLInputElement>(`[data-colour="${slot}"]`)!;
+    input.value = b.dataset.swatch!;
+    syncColour(input);
+    form.querySelectorAll('[data-swatch]').forEach((x) => x.removeAttribute('aria-pressed'));
+    b.setAttribute('aria-pressed', 'true');
+  }));
+  form.querySelector<HTMLInputElement>('[data-qty]')!.addEventListener('input', (e) => {
+    const v = (e.target as HTMLInputElement).value;
+    out('qty').textContent = v ? `${v} pieces` : '—';
+  });
+  form.addEventListener('inquiry:sent', () => {
+    form.querySelectorAll<HTMLInputElement>('[data-colour]').forEach(syncColour);
+    syncSport();
+  });
+
+  // Preselect from ?sport=&garment= links on collection and product pages.
+  const params = new URLSearchParams(location.search);
+  const wanted = params.get('sport');
+  if (wanted) {
+    const opt = [...sport.options].find((o) => o.dataset.slug === wanted);
+    if (opt) sport.value = opt.value;
+  }
+  syncSport();
+  const garment = params.get('garment');
+  if (garment) {
+    const list = lists.find((l) => l.dataset.garments === slugOf());
+    const match = [...(list?.querySelectorAll<HTMLInputElement>('input') ?? [])].find((i) =>
+      i.value.toLowerCase().replace(/[^a-z0-9]+/g, '-') === garment);
+    if (match) { match.checked = true; syncGarments(); }
+  }
+</script>

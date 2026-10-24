@@ -1,0 +1,8 @@
+{
+  "name": "Mufasar Enterprises",
+  "short_name": "Mufasar",
+  "icons": [{ "src": "/assets/brand/icon-512.png", "sizes": "512x512", "type": "image/png" }],
+  "theme_color": "#0a1222",
+  "background_color": "#0a1222",
+  "display": "browser"
+}

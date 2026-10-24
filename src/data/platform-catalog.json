@@ -1,0 +1,3231 @@
+{
+ "_source": "Exported read-only from Sialkot B2B platform site_mufasar_enterprises, release rel_agent_publish_9e433aa21f01d4b6675ac043785a656b, 2026-10-23",
+ "categories": [
+  {
+   "slug": "soccer",
+   "name": "Soccer",
+   "intro": "Fully sublimated match kits in any design, with crest, sponsors, names and numbers printed in.",
+   "tagline": "Jerseys · Shorts · Socks · Goalkeeper kits",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom soccer uniforms",
+    "soccer manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Match kit",
+    "Goalkeeper",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "soccer-match-jersey",
+     "name": "Soccer match jersey",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-soccer-match-jersey.png"
+    },
+    {
+     "slug": "soccer-match-shorts",
+     "name": "Soccer match shorts",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-soccer-match-shorts.png"
+    },
+    {
+     "slug": "soccer-match-socks",
+     "name": "Soccer match socks",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-soccer-match-socks.png"
+    },
+    {
+     "slug": "goalkeeper-jersey",
+     "name": "Goalkeeper jersey",
+     "group": "Goalkeeper",
+     "features": [
+      "Goalkeeper",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-goalkeeper-jersey.png"
+    },
+    {
+     "slug": "soccer-training-top",
+     "name": "Soccer training top",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-soccer-training-top.png"
+    },
+    {
+     "slug": "soccer-tracksuit",
+     "name": "Soccer tracksuit",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-soccer-soccer-tracksuit.png"
+    }
+   ]
+  },
+  {
+   "slug": "cricket",
+   "name": "Cricket",
+   "intro": "Coloured clothing and whites for clubs and schools, made to order with your crest and sponsors.",
+   "tagline": "Playing shirts · Trousers · Sweaters · Caps",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom cricket uniforms",
+    "cricket manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Coloured kit",
+    "Whites",
+    "Accessories"
+   ],
+   "products": [
+    {
+     "slug": "cricket-playing-shirt",
+     "name": "Cricket playing shirt",
+     "group": "Coloured kit",
+     "features": [
+      "Coloured kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-cricket-cricket-playing-shirt.png"
+    },
+    {
+     "slug": "cricket-playing-trousers",
+     "name": "Cricket playing trousers",
+     "group": "Coloured kit",
+     "features": [
+      "Coloured kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-cricket-cricket-playing-trousers.png"
+    },
+    {
+     "slug": "cricket-whites-shirt",
+     "name": "Cricket whites shirt",
+     "group": "Whites",
+     "features": [
+      "Whites",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-cricket-cricket-whites-shirt.png"
+    },
+    {
+     "slug": "cricket-sweater",
+     "name": "Cricket sweater",
+     "group": "Whites",
+     "features": [
+      "Whites",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-cricket-cricket-sweater.png"
+    },
+    {
+     "slug": "cricket-cap",
+     "name": "Cricket cap",
+     "group": "Accessories",
+     "features": [
+      "Accessories",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-cricket-cricket-cap.png"
+    }
+   ]
+  },
+  {
+   "slug": "basketball",
+   "name": "Basketball",
+   "intro": "Deep-cut game jerseys and shorts with breathable side panels, built to move through four quarters.",
+   "tagline": "Jerseys · Shorts · Reversibles · Warm-ups",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom basketball uniforms",
+    "basketball manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Game uniform",
+    "Practice",
+    "Warm-up"
+   ],
+   "products": [
+    {
+     "slug": "basketball-game-jersey",
+     "name": "Basketball game jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-basketball-basketball-game-jersey.png"
+    },
+    {
+     "slug": "basketball-game-shorts",
+     "name": "Basketball game shorts",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-basketball-basketball-game-shorts.png"
+    },
+    {
+     "slug": "reversible-practice-jersey",
+     "name": "Reversible practice jersey",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-basketball-reversible-practice-jersey.png"
+    },
+    {
+     "slug": "shooting-shirt",
+     "name": "Shooting shirt",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-basketball-shooting-shirt.png"
+    },
+    {
+     "slug": "warm-up-jacket",
+     "name": "Warm-up jacket",
+     "group": "Warm-up",
+     "features": [
+      "Warm-up",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-basketball-warm-up-jacket.png"
+    }
+   ]
+  },
+  {
+   "slug": "volleyball",
+   "name": "Volleyball",
+   "intro": "Light, stretchy jerseys and spandex shorts for indoor and beach teams.",
+   "tagline": "Jerseys · Shorts · Libero kits · Warm-ups",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom volleyball uniforms",
+    "volleyball manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Game uniform",
+    "Warm-up"
+   ],
+   "products": [
+    {
+     "slug": "volleyball-jersey",
+     "name": "Volleyball jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-volleyball-volleyball-jersey.png"
+    },
+    {
+     "slug": "volleyball-spandex-shorts",
+     "name": "Volleyball spandex shorts",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-volleyball-volleyball-spandex-shorts.png"
+    },
+    {
+     "slug": "libero-jersey",
+     "name": "Libero jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-volleyball-libero-jersey.png"
+    },
+    {
+     "slug": "volleyball-warm-up-top",
+     "name": "Volleyball warm-up top",
+     "group": "Warm-up",
+     "features": [
+      "Warm-up",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-volleyball-volleyball-warm-up-top.png"
+    }
+   ]
+  },
+  {
+   "slug": "rugby",
+   "name": "Rugby",
+   "intro": "Heavy-duty rugby jerseys with reinforced seams and grip panels, built for contact.",
+   "tagline": "Jerseys · Shorts · Socks · Training",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom rugby uniforms",
+    "rugby manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Match kit",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "rugby-match-jersey",
+     "name": "Rugby match jersey",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-rugby-rugby-match-jersey.png"
+    },
+    {
+     "slug": "rugby-shorts",
+     "name": "Rugby shorts",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-rugby-rugby-shorts.png"
+    },
+    {
+     "slug": "rugby-socks",
+     "name": "Rugby socks",
+     "group": "Match kit",
+     "features": [
+      "Match kit",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-rugby-rugby-socks.png"
+    },
+    {
+     "slug": "rugby-training-tee",
+     "name": "Rugby training tee",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-rugby-rugby-training-tee.png"
+    },
+    {
+     "slug": "rugby-hoodie",
+     "name": "Rugby hoodie",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-rugby-rugby-hoodie.png"
+    }
+   ]
+  },
+  {
+   "slug": "american-football",
+   "name": "American Football",
+   "intro": "Tackle-twill numbers, stretch side panels and shoulder cuts that sit cleanly over pads.",
+   "tagline": "Game jerseys · Practice jerseys · Pants",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom american football uniforms",
+    "american football manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Game uniform",
+    "Practice"
+   ],
+   "products": [
+    {
+     "slug": "football-game-jersey",
+     "name": "Football game jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-american-football-football-game-jersey.png"
+    },
+    {
+     "slug": "football-game-pants",
+     "name": "Football game pants",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-american-football-football-game-pants.png"
+    },
+    {
+     "slug": "football-practice-jersey",
+     "name": "Football practice jersey",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-american-football-football-practice-jersey.png"
+    },
+    {
+     "slug": "football-team-hoodie",
+     "name": "Football team hoodie",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-american-football-football-team-hoodie.png"
+    }
+   ]
+  },
+  {
+   "slug": "baseball",
+   "name": "Baseball",
+   "intro": "Button-front and pullover baseball jerseys with matching pants and caps.",
+   "tagline": "Jerseys · Pants · Caps · Jackets",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom baseball uniforms",
+    "baseball manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Game uniform",
+    "Accessories"
+   ],
+   "products": [
+    {
+     "slug": "baseball-button-jersey",
+     "name": "Baseball button jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-baseball-baseball-button-jersey.png"
+    },
+    {
+     "slug": "baseball-pullover-jersey",
+     "name": "Baseball pullover jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-baseball-baseball-pullover-jersey.png"
+    },
+    {
+     "slug": "baseball-pants",
+     "name": "Baseball pants",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-baseball-baseball-pants.png"
+    },
+    {
+     "slug": "baseball-cap",
+     "name": "Baseball cap",
+     "group": "Accessories",
+     "features": [
+      "Accessories",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-baseball-baseball-cap.png"
+    },
+    {
+     "slug": "baseball-dugout-jacket",
+     "name": "Baseball dugout jacket",
+     "group": "Accessories",
+     "features": [
+      "Accessories",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-baseball-baseball-dugout-jacket.png"
+    }
+   ]
+  },
+  {
+   "slug": "ice-hockey",
+   "name": "Ice Hockey",
+   "intro": "Game jerseys with laced collars, matching socks and room to fit over every piece of kit.",
+   "tagline": "Game jerseys · Practice jerseys · Socks",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom ice hockey uniforms",
+    "ice hockey manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Game uniform",
+    "Practice"
+   ],
+   "products": [
+    {
+     "slug": "hockey-game-jersey",
+     "name": "Hockey game jersey",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-ice-hockey-hockey-game-jersey.png"
+    },
+    {
+     "slug": "hockey-socks",
+     "name": "Hockey socks",
+     "group": "Game uniform",
+     "features": [
+      "Game uniform",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-ice-hockey-hockey-socks.png"
+    },
+    {
+     "slug": "hockey-practice-jersey",
+     "name": "Hockey practice jersey",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-ice-hockey-hockey-practice-jersey.png"
+    },
+    {
+     "slug": "hockey-team-jacket",
+     "name": "Hockey team jacket",
+     "group": "Practice",
+     "features": [
+      "Practice",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-ice-hockey-hockey-team-jacket.png"
+    }
+   ]
+  },
+  {
+   "slug": "tennis",
+   "name": "Tennis",
+   "intro": "Light performance polos, tees, shorts and skirts for clubs and academies.",
+   "tagline": "Polos · Tees · Shorts · Skirts",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom tennis uniforms",
+    "tennis manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Men's",
+    "Women's",
+    "Layers"
+   ],
+   "products": [
+    {
+     "slug": "tennis-polo",
+     "name": "Tennis polo",
+     "group": "Men's",
+     "features": [
+      "Men's",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-tennis-tennis-polo.png"
+    },
+    {
+     "slug": "tennis-shorts",
+     "name": "Tennis shorts",
+     "group": "Men's",
+     "features": [
+      "Men's",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-tennis-tennis-shorts.png"
+    },
+    {
+     "slug": "tennis-dress",
+     "name": "Tennis dress",
+     "group": "Women's",
+     "features": [
+      "Women's",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-tennis-tennis-dress.png"
+    },
+    {
+     "slug": "tennis-skirt",
+     "name": "Tennis skirt",
+     "group": "Women's",
+     "features": [
+      "Women's",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-tennis-tennis-skirt.png"
+    },
+    {
+     "slug": "tennis-quarter-zip",
+     "name": "Tennis quarter-zip",
+     "group": "Layers",
+     "features": [
+      "Layers",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-tennis-tennis-quarter-zip.png"
+    }
+   ]
+  },
+  {
+   "slug": "boxing",
+   "name": "Boxing",
+   "intro": "Satin boxing shorts, robes and vests made to your corner colours.",
+   "tagline": "Shorts · Robes · Vests · Walkout wear",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom boxing uniforms",
+    "boxing manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Ring wear",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "boxing-shorts",
+     "name": "Boxing shorts",
+     "group": "Ring wear",
+     "features": [
+      "Ring wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-boxing-boxing-shorts.png"
+    },
+    {
+     "slug": "boxing-vest",
+     "name": "Boxing vest",
+     "group": "Ring wear",
+     "features": [
+      "Ring wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-boxing-boxing-vest.png"
+    },
+    {
+     "slug": "boxing-robe",
+     "name": "Boxing robe",
+     "group": "Ring wear",
+     "features": [
+      "Ring wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-boxing-boxing-robe.png"
+    },
+    {
+     "slug": "boxing-training-tee",
+     "name": "Boxing training tee",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-boxing-boxing-training-tee.png"
+    },
+    {
+     "slug": "boxing-hoodie",
+     "name": "Boxing hoodie",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-boxing-boxing-hoodie.png"
+    }
+   ]
+  },
+  {
+   "slug": "mma",
+   "name": "MMA",
+   "intro": "Fight shorts, rash guards and compression spats for gyms and fight teams.",
+   "tagline": "Fight shorts · Rash guards · Spats · Walkout",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom mma uniforms",
+    "mma manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Fight wear",
+    "Walkout"
+   ],
+   "products": [
+    {
+     "slug": "mma-fight-shorts",
+     "name": "MMA fight shorts",
+     "group": "Fight wear",
+     "features": [
+      "Fight wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-mma-mma-fight-shorts.png"
+    },
+    {
+     "slug": "mma-rash-guard",
+     "name": "MMA rash guard",
+     "group": "Fight wear",
+     "features": [
+      "Fight wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-mma-mma-rash-guard.png"
+    },
+    {
+     "slug": "mma-compression-spats",
+     "name": "MMA compression spats",
+     "group": "Fight wear",
+     "features": [
+      "Fight wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-mma-mma-compression-spats.png"
+    },
+    {
+     "slug": "walkout-hoodie",
+     "name": "Walkout hoodie",
+     "group": "Walkout",
+     "features": [
+      "Walkout",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-mma-walkout-hoodie.png"
+    },
+    {
+     "slug": "walkout-tee",
+     "name": "Walkout tee",
+     "group": "Walkout",
+     "features": [
+      "Walkout",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-mma-walkout-tee.png"
+    }
+   ]
+  },
+  {
+   "slug": "bjj",
+   "name": "BJJ",
+   "intro": "Pearl-weave gis, rash guards and no-gi shorts for academies and brands.",
+   "tagline": "Gis · Rash guards · No-gi shorts · Belts",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom bjj uniforms",
+    "bjj manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Gi",
+    "No-gi"
+   ],
+   "products": [
+    {
+     "slug": "bjj-gi",
+     "name": "BJJ gi",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-bjj-bjj-gi.png"
+    },
+    {
+     "slug": "bjj-gi-navy",
+     "name": "BJJ gi navy",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-bjj-bjj-gi-navy.png"
+    },
+    {
+     "slug": "bjj-belt",
+     "name": "BJJ belt",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-bjj-bjj-belt.png"
+    },
+    {
+     "slug": "bjj-rash-guard",
+     "name": "BJJ rash guard",
+     "group": "No-gi",
+     "features": [
+      "No-gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-bjj-bjj-rash-guard.png"
+    },
+    {
+     "slug": "no-gi-shorts",
+     "name": "No-gi shorts",
+     "group": "No-gi",
+     "features": [
+      "No-gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-bjj-no-gi-shorts.png"
+    }
+   ]
+  },
+  {
+   "slug": "karate",
+   "name": "Karate",
+   "intro": "Lightweight and heavyweight karate gis for clubs, with belts and training wear.",
+   "tagline": "Gis · Belts · Training wear",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom karate uniforms",
+    "karate manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Gi",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "karate-gi-lightweight",
+     "name": "Karate gi lightweight",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-karate-karate-gi-lightweight.png"
+    },
+    {
+     "slug": "karate-gi-heavyweight",
+     "name": "Karate gi heavyweight",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-karate-karate-gi-heavyweight.png"
+    },
+    {
+     "slug": "karate-belt",
+     "name": "Karate belt",
+     "group": "Gi",
+     "features": [
+      "Gi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-karate-karate-belt.png"
+    },
+    {
+     "slug": "karate-club-tee",
+     "name": "Karate club tee",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-karate-karate-club-tee.png"
+    }
+   ]
+  },
+  {
+   "slug": "taekwondo",
+   "name": "Taekwondo",
+   "intro": "V-neck doboks for poomsae and sparring, with belts and club wear.",
+   "tagline": "Doboks · Belts · Training wear",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom taekwondo uniforms",
+    "taekwondo manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Dobok",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "taekwondo-dobok-white",
+     "name": "Taekwondo dobok white",
+     "group": "Dobok",
+     "features": [
+      "Dobok",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-taekwondo-taekwondo-dobok-white.png"
+    },
+    {
+     "slug": "taekwondo-dobok-poomsae",
+     "name": "Taekwondo dobok poomsae",
+     "group": "Dobok",
+     "features": [
+      "Dobok",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-taekwondo-taekwondo-dobok-poomsae.png"
+    },
+    {
+     "slug": "taekwondo-belt",
+     "name": "Taekwondo belt",
+     "group": "Dobok",
+     "features": [
+      "Dobok",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-taekwondo-taekwondo-belt.png"
+    },
+    {
+     "slug": "taekwondo-club-tracksuit",
+     "name": "Taekwondo club tracksuit",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-taekwondo-taekwondo-club-tracksuit.png"
+    }
+   ]
+  },
+  {
+   "slug": "judo",
+   "name": "Judo",
+   "intro": "Double-weave competition judogis in white and blue, with belts and club wear.",
+   "tagline": "Judogis · Belts · Training wear",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom judo uniforms",
+    "judo manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Judogi",
+    "Training"
+   ],
+   "products": [
+    {
+     "slug": "judogi-white",
+     "name": "Judogi white",
+     "group": "Judogi",
+     "features": [
+      "Judogi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-judo-judogi-white.png"
+    },
+    {
+     "slug": "judogi-blue",
+     "name": "Judogi blue",
+     "group": "Judogi",
+     "features": [
+      "Judogi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-judo-judogi-blue.png"
+    },
+    {
+     "slug": "judo-belt",
+     "name": "Judo belt",
+     "group": "Judogi",
+     "features": [
+      "Judogi",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-judo-judo-belt.png"
+    },
+    {
+     "slug": "judo-club-hoodie",
+     "name": "Judo club hoodie",
+     "group": "Training",
+     "features": [
+      "Training",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-judo-judo-club-hoodie.png"
+    }
+   ]
+  },
+  {
+   "slug": "activewear",
+   "name": "Activewear",
+   "intro": "Gym, fitness, compression, yoga and running wear for brands and gyms, in your colours and label.",
+   "tagline": "Gym · Fitness · Compression · Yoga · Running",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom activewear uniforms",
+    "activewear manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Gym wear",
+    "Fitness wear",
+    "Compression wear",
+    "Yoga wear",
+    "Running wear",
+    "Workout shorts",
+    "Leggings",
+    "Sports bras",
+    "Tracksuits"
+   ],
+   "products": [
+    {
+     "slug": "gym-training-tee",
+     "name": "Gym training tee",
+     "group": "Gym wear",
+     "features": [
+      "Gym wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-gym-training-tee.png"
+    },
+    {
+     "slug": "gym-tank-top",
+     "name": "Gym tank top",
+     "group": "Gym wear",
+     "features": [
+      "Gym wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-gym-tank-top.png"
+    },
+    {
+     "slug": "fitness-crop-top",
+     "name": "Fitness crop top",
+     "group": "Fitness wear",
+     "features": [
+      "Fitness wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-fitness-crop-top.png"
+    },
+    {
+     "slug": "compression-long-sleeve",
+     "name": "Compression long-sleeve",
+     "group": "Compression wear",
+     "features": [
+      "Compression wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-compression-long-sleeve.png"
+    },
+    {
+     "slug": "compression-tights",
+     "name": "Compression tights",
+     "group": "Compression wear",
+     "features": [
+      "Compression wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-compression-tights.png"
+    },
+    {
+     "slug": "yoga-set",
+     "name": "Yoga set",
+     "group": "Yoga wear",
+     "features": [
+      "Yoga wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-yoga-set.png"
+    },
+    {
+     "slug": "running-singlet",
+     "name": "Running singlet",
+     "group": "Running wear",
+     "features": [
+      "Running wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-running-singlet.png"
+    },
+    {
+     "slug": "running-shorts",
+     "name": "Running shorts",
+     "group": "Running wear",
+     "features": [
+      "Running wear",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-running-shorts.png"
+    },
+    {
+     "slug": "workout-shorts",
+     "name": "Workout shorts",
+     "group": "Workout shorts",
+     "features": [
+      "Workout shorts",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-workout-shorts.png"
+    },
+    {
+     "slug": "high-waist-leggings",
+     "name": "High-waist leggings",
+     "group": "Leggings",
+     "features": [
+      "Leggings",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-high-waist-leggings.png"
+    },
+    {
+     "slug": "sports-bra",
+     "name": "Sports bra",
+     "group": "Sports bras",
+     "features": [
+      "Sports bras",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-sports-bra.png"
+    },
+    {
+     "slug": "tracksuit-set",
+     "name": "Tracksuit set",
+     "group": "Tracksuits",
+     "features": [
+      "Tracksuits",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-activewear-tracksuit-set.png"
+    }
+   ]
+  },
+  {
+   "slug": "streetwear",
+   "name": "Streetwear",
+   "intro": "Heavyweight blanks and finished streetwear made under your own label, with custom tags and packaging.",
+   "tagline": "Hoodies · Tees · Joggers · Jackets · Caps",
+   "options": [
+    "Your colours and crest",
+    "Names, numbers or private label",
+    "Youth and adult sizes"
+   ],
+   "faqs": [
+    {
+     "a": "It depends on the product and decoration, and is confirmed with your quote.",
+     "q": "What is the minimum order?"
+    },
+    {
+     "a": "Yes. Crest, sponsor logos, names and numbers or your own label, placed where you want them.",
+     "q": "Can every piece carry our branding?"
+    }
+   ],
+   "materials": [],
+   "seo": [
+    "custom streetwear uniforms",
+    "streetwear manufacturer Sialkot"
+   ],
+   "subcategories": [
+    "Hoodies",
+    "Tees",
+    "Joggers",
+    "Jackets",
+    "Caps"
+   ],
+   "products": [
+    {
+     "slug": "heavyweight-hoodie",
+     "name": "Heavyweight hoodie",
+     "group": "Hoodies",
+     "features": [
+      "Hoodies",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-heavyweight-hoodie.png"
+    },
+    {
+     "slug": "zip-hoodie",
+     "name": "Zip hoodie",
+     "group": "Hoodies",
+     "features": [
+      "Hoodies",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-zip-hoodie.png"
+    },
+    {
+     "slug": "heavyweight-tee",
+     "name": "Heavyweight tee",
+     "group": "Tees",
+     "features": [
+      "Tees",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-heavyweight-tee.png"
+    },
+    {
+     "slug": "oversized-tee",
+     "name": "Oversized tee",
+     "group": "Tees",
+     "features": [
+      "Tees",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-oversized-tee.png"
+    },
+    {
+     "slug": "fleece-joggers",
+     "name": "Fleece joggers",
+     "group": "Joggers",
+     "features": [
+      "Joggers",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-fleece-joggers.png"
+    },
+    {
+     "slug": "cargo-pants",
+     "name": "Cargo pants",
+     "group": "Joggers",
+     "features": [
+      "Joggers",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-cargo-pants.png"
+    },
+    {
+     "slug": "varsity-jacket",
+     "name": "Varsity jacket",
+     "group": "Jackets",
+     "features": [
+      "Jackets",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-varsity-jacket.png"
+    },
+    {
+     "slug": "coach-jacket",
+     "name": "Coach jacket",
+     "group": "Jackets",
+     "features": [
+      "Jackets",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-coach-jacket.png"
+    },
+    {
+     "slug": "snapback-cap",
+     "name": "Snapback cap",
+     "group": "Caps",
+     "features": [
+      "Caps",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-snapback-cap.png"
+    },
+    {
+     "slug": "beanie",
+     "name": "Beanie",
+     "group": "Caps",
+     "features": [
+      "Caps",
+      "Made to order",
+      "Your branding"
+     ],
+     "specs": [
+      [
+       "Decoration",
+       "Sublimation, embroidery, print or transfers where suited"
+      ],
+      [
+       "Sizes",
+       "Youth and adult"
+      ],
+      [
+       "Colours",
+       "Any"
+      ],
+      [
+       "Minimum",
+       "Confirmed with your quote"
+      ]
+     ],
+     "source": "cut-p-streetwear-beanie.png"
+    }
+   ]
+  }
+ ]
+}

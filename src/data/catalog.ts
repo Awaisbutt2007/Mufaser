@@ -11,7 +11,7 @@
 import platform from './platform-catalog.json';
 import manifest from './image-manifest.json';
 
-export type GroupId = 'team' | 'combat' | 'performance';
+export type GroupId = 'team' | 'combat' | 'performance' | 'streetwear';
 export type Garment =
   | 'jersey' | 'shorts' | 'trousers' | 'socks' | 'jacket' | 'hoodie' | 'tee'
   | 'singlet' | 'skirt' | 'cap' | 'gi' | 'belt' | 'bra' | 'leggings' | 'set';
@@ -67,7 +67,13 @@ export const groups: { id: GroupId; name: string; short: string; description: st
     id: 'performance',
     name: 'Performance & Lifestyle',
     short: 'Performance & lifestyle',
-    description: 'Gym, fitness, running, yoga and streetwear made under your own label.',
+    description: 'Gym, fitness, compression, running and yoga wear made under your own label.',
+  },
+  {
+    id: 'streetwear',
+    name: 'Streetwear',
+    short: 'Streetwear',
+    description: 'Hoodies, tees, jackets, joggers and caps for streetwear labels, merch and team stores.',
   },
 ];
 
@@ -280,35 +286,39 @@ const combatSports: Category[] = [
   },
 ];
 
-// Performance & lifestyle: platform activewear/streetwear plus filtered views.
+// Performance & lifestyle: platform activewear plus filtered views.
 const activewear = sport('activewear', 'performance', {
   name: 'Activewear',
   intro: P.activewear?.intro ?? '',
   summary: 'The full performance range: gym, fitness, compression, yoga, running and training wear.',
 });
-const streetwear = sport('streetwear', 'performance', {
+// Streetwear: its own family, with filtered views by garment type.
+const streetwear = sport('streetwear', 'streetwear', {
   name: 'Streetwear',
   summary: 'Heavyweight hoodies, tees, joggers, jackets and caps under your own label.',
 });
 
-function view(slug: string, name: string, summary: string, intro: string, match: ((p: Product) => boolean) | string[]): Category {
+function view(
+  slug: string, name: string, summary: string, intro: string, match: ((p: Product) => boolean) | string[],
+  source: Category = activewear,
+): Category {
   const products = Array.isArray(match)
-    ? match.map((m) => activewear.products.find((p) => p.slug === m)).filter((p): p is Product => Boolean(p))
-    : activewear.products.filter(match);
+    ? match.map((m) => source.products.find((p) => p.slug === m)).filter((p): p is Product => Boolean(p))
+    : source.products.filter(match);
   return {
     slug,
     name,
-    group: 'performance',
+    group: source.group,
     kind: 'view',
     summary,
     intro,
     hero: null,
     heroPosition: '50% 50%',
     options: ['Your fabric, colours and fit', 'Your logo or private label', 'Youth and adult sizes'],
-    faqs: activewear.faqs,
+    faqs: source.faqs,
     subcategories: [],
     products,
-    related: ['activewear', 'streetwear'],
+    related: source === streetwear ? ['streetwear', 'activewear'] : ['activewear', 'streetwear'],
     keywords: [`custom ${name.toLowerCase()} manufacturer`, `private label ${name.toLowerCase()}`],
   };
 }
@@ -336,12 +346,25 @@ const performance: Category[] = [
     'Sports bras and supportive crop tops for activewear labels.', s('sports-bra', 'fitness-crop-top')),
   view('tracksuits', 'Tracksuits', 'Tracksuit sets for teams and brands.',
     'Tracksuits for teams, clubs and lifestyle brands, made to order in your colours.', g('Tracksuits')),
-  streetwear,
 ];
 // Tracksuits view also surfaces team tracksuits from other collections.
 const tracksuits = performance.find((c) => c.slug === 'tracksuits')!;
 
-export const categories: Category[] = [...teamSports, ...combatSports, ...performance];
+const streetwearRange: Category[] = [
+  streetwear,
+  view('hoodies', 'Hoodies', 'Heavyweight pullover and zip hoodies.',
+    'Heavyweight pullover and zip hoodies made under your label, in your fabric, colours and fit.', g('Hoodies'), streetwear),
+  view('tees', 'Tees', 'Heavyweight and oversized tees.',
+    'Heavyweight and oversized tees for streetwear labels, merch and team stores.', g('Tees'), streetwear),
+  view('streetwear-jackets', 'Jackets', 'Varsity and coach jackets.',
+    'Varsity and coach jackets with embroidery, chenille or print, made to your specification.', g('Jackets'), streetwear),
+  view('joggers-and-pants', 'Joggers & Pants', 'Fleece joggers and cargo pants.',
+    'Fleece joggers and cargo pants made under your label, in your fabric and colours.', g('Joggers'), streetwear),
+  view('caps-and-beanies', 'Caps & Beanies', 'Snapback caps and beanies.',
+    'Snapback caps and knitted beanies with embroidered or woven branding.', g('Caps'), streetwear),
+];
+
+export const categories: Category[] = [...teamSports, ...combatSports, ...performance, ...streetwearRange];
 
 for (const c of categories) {
   if (c.slug === 'tracksuits') continue;

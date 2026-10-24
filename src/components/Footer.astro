@@ -5,7 +5,8 @@ import { categoriesIn, categoryUrl } from '../data/catalog';
 const year = new Date().getFullYear();
 const team = categoriesIn('team');
 const combat = categoriesIn('combat');
-const perf = categoriesIn('performance').filter((c) => ['activewear', 'gym-wear', 'compression-wear', 'running-wear', 'yoga-wear', 'tracksuits', 'streetwear'].includes(c.slug));
+const perf = categoriesIn('performance').filter((c) => ['activewear', 'gym-wear', 'compression-wear', 'running-wear', 'yoga-wear', 'tracksuits'].includes(c.slug));
+const street = categoriesIn('streetwear');
 ---
 <footer class="site-footer">
   <div class="container">
@@ -26,6 +27,12 @@ const perf = categoriesIn('performance').filter((c) => ['activewear', 'gym-wear'
         <h2>Performance &amp; lifestyle</h2>
         <ul>
           {perf.map((c) => <li><a href={categoryUrl(c)}>{c.name}</a></li>)}
+        </ul>
+      </nav>
+      <nav aria-label="Streetwear">
+        <h2>Streetwear</h2>
+        <ul>
+          {street.map((c) => <li><a href={categoryUrl(c)}>{c.name}</a></li>)}
           <li><a href="/collections/">All collections</a></li>
         </ul>
       </nav>

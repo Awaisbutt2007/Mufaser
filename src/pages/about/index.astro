@@ -5,7 +5,14 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ProcessSteps from '../../components/ProcessSteps.astro';
 import FinalCta from '../../components/FinalCta.astro';
 import { company, facts } from '../../data/company';
-import { categories, groups, categoriesIn } from '../../data/catalog';
+import { categories, groups, categoriesIn, craftSources } from '../../data/catalog';
+
+const production = [
+  { img: 'process-cutting', title: 'Pattern & cutting', alt: 'Fabric being cut to garment patterns', body: 'Patterns are graded to your size range and fabric is cut panel by panel to the approved specification.' },
+  { img: 'process-printing', title: 'Printing & decoration', alt: 'Sublimation printing of a team design', body: 'Your colours, crests, sponsors, names and numbers are applied by sublimation, screen print, embroidery or transfer.' },
+  { img: 'process-sewing', title: 'Stitching & finishing', alt: 'Garment panels being stitched on a sewing machine', body: 'Panels are stitched, trims and labels are attached, and each garment is finished and pressed.' },
+  { img: 'process-quality', title: 'Quality check & packing', alt: 'A finished garment being inspected', body: 'Every piece is inspected against your approved sample, then packed with your labels and packaging for dispatch.' },
+];
 
 const confirmedExtras = [facts.chamberMembership].filter((f) => f.confirmed).map((f) => f.value);
 const markets = company.markets.join(', ').replace(/, ([^,]*)$/, ' and $1');
@@ -45,15 +52,45 @@ const markets = company.markets.join(', ').replace(/, ([^,]*)$/, ' and $1');
         <span class="eyebrow">What we make</span>
         <h2 id="range-title" class="display h2">{categories.length} collections, three families</h2>
       </div>
-      <div class="why-grid" style="background:var(--line-dark);border-color:var(--line-dark)">
+      <div class="why-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr))">
         {groups.map((g) => (
-          <article class="why-item" style="background:var(--navy-900)">
+          <article class="why-item" style="background:linear-gradient(170deg,var(--navy-800),var(--navy-900));border-color:var(--line-dark)">
             <h3 style="color:var(--text-on-dark)">{g.name}</h3>
             <p style="color:var(--text-on-dark-muted)">{categoriesIn(g.id).map((c) => c.name).join(', ')}.</p>
             <a class="link-arrow" href={`/collections/#${g.id}`}>Explore <Icon name="arrow" /></a>
           </article>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section section--light" aria-labelledby="production-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Our product process</span>
+          <h2 id="production-title" class="display h2">How your kit is made</h2>
+        </div>
+        <p class="lead">{facts.inHouse.value}. Every stage is checked against your approved sample.</p>
+      </div>
+      <ol class="production">
+        {production.map((s, i) => {
+          const img = craftSources(s.img);
+          return (
+            <li class="production-step">
+              <figure>
+                <img src={img.src} srcset={img.srcset} sizes="(min-width: 1000px) 25vw, (min-width: 620px) 50vw, 100vw" width={img.width} height={img.height} alt={s.alt} loading="lazy" decoding="async" />
+                <span class="production-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+              </figure>
+              <div class="production-body">
+                <h3>{s.title}</h3>
+                <p>{s.body}</p>
+              </div>
+            </li>
+          );
+        })}
+      </ol>
+      <p class="illustrative">Illustrative images of each production stage, not photographs of the {company.name} factory.</p>
     </div>
   </section>
 

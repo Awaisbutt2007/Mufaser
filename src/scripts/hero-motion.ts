@@ -109,11 +109,16 @@ if (hero) {
   }
 
   async function setupScroll() {
-    const [{ gsap }, { ScrollTrigger }] = await Promise.all([import('gsap'), import('gsap/ScrollTrigger')]);
-    gsap.registerPlugin(ScrollTrigger);
+    const [{ gsap }, { ScrollTrigger }, { ScrollToPlugin }] = await Promise.all([
+      import('gsap'), import('gsap/ScrollTrigger'), import('gsap/ScrollToPlugin'),
+    ]);
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
     // ------------------------------------------------------ scroll-driven showcase
     hero!.classList.add('is-scroll');
     endsOnLast = true;
+    // CSS smooth scrolling turns every scroll position GSAP sets (snap, tab tweens) into its
+    // own animation, so the scroll crawls and fights the snap. GSAP does the easing here.
+    document.documentElement.style.scrollBehavior = 'auto';
     // Fetch the other slides' images on first scroll (or after a few seconds), not during load.
     window.addEventListener('scroll', hydrateAll, { once: true, passive: true });
     setTimeout(hydrateAll, 4000);
@@ -186,6 +191,9 @@ if (hero) {
     layout();
     wrap.classList.add('is-sticky');
 
+    // Directional snap (one gesture moves one sport), disabled while navigating by tab.
+    const snapDirectional = ScrollTrigger.snapDirectional(labelTimes.map((lt) => lt / total).concat([1]));
+    let navigating = false;
     const st = ScrollTrigger.create({
       trigger: wrap,
       // Start at the very top of the page, even when the hero is taller than the screen.
@@ -197,13 +205,13 @@ if (hero) {
       invalidateOnRefresh: true,
       onRefreshInit: layout,
       snap: {
-        snapTo: labelTimes.map((lt) => lt / total).concat([1]),
+        // While a tab/"Next up" tween is scrolling, snapping would pull it back.
+        snapTo: (value, self) => (navigating ? value : snapDirectional(value, self?.direction)),
         duration: { min: 0.25, max: 0.8 },
         delay: 0.08,
         ease: 'power2.inOut',
         // No velocity prediction: one gesture moves exactly one sport.
         inertia: false,
-        directional: true,
       },
       onUpdate: (self) => {
         const i = indexAt(self.progress * total);
@@ -214,7 +222,15 @@ if (hero) {
     const goTo = (i: number) => {
       const clamped = Math.max(0, Math.min(count - 1, i));
       const y = st.start + (st.end - st.start) * (labelTimes[clamped] / total);
-      window.scrollTo({ top: y, behavior: 'smooth' });
+      // A tweened scroll (not native smooth scroll) so the snap can't interrupt it halfway.
+      // No autoKill: a ScrollTrigger.refresh() mid-tween restores the old scroll position,
+      // which autoKill would mistake for the user scrolling and stop the tween there.
+      st.getTween(true)?.kill();
+      navigating = true;
+      gsap.to(window, {
+        scrollTo: { y, autoKill: false }, duration: 0.5 + 0.12 * Math.abs(clamped - current), ease: 'power2.inOut', overwrite: true,
+        onComplete: () => { navigating = false; },
+      });
     };
 
     // Gentle cursor parallax on the garment (desktop pointers only).

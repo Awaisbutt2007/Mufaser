@@ -33,6 +33,7 @@ const heroSizes = '100vw';
 const team = categoriesIn('team');
 const combat = categoriesIn('combat');
 const perfTiles = categoriesIn('performance').filter((c) => c.slug !== 'activewear');
+const streetTiles = categoriesIn('streetwear').filter((c) => c.slug !== 'streetwear');
 
 const customOptions = [
   { title: 'Team colours', body: 'Every garment is made in your colours: body, trims, panels and collars.', img: 'sublimation' },
@@ -180,7 +181,8 @@ const jsonLd = [{
         <ul>
           <li><a href="/collections/#team"><span><strong>Team sportswear</strong><small>{team.length} sports</small></span><Icon name="arrow" /></a></li>
           <li><a href="/collections/#combat"><span><strong>Combat sportswear</strong><small>{combat.length} disciplines</small></span><Icon name="arrow" /></a></li>
-          <li><a href="/collections/#performance"><span><strong>Performance &amp; lifestyle</strong><small>Gym, running, yoga, streetwear</small></span><Icon name="arrow" /></a></li>
+          <li><a href="/collections/#performance"><span><strong>Performance &amp; lifestyle</strong><small>Gym, running, yoga, compression</small></span><Icon name="arrow" /></a></li>
+          <li><a href="/collections/#streetwear"><span><strong>Streetwear</strong><small>Hoodies, tees, jackets, caps</small></span><Icon name="arrow" /></a></li>
           <li><a href="/custom-manufacturing/"><span><strong>Private label</strong><small>Your brand, our production</small></span><Icon name="arrow" /></a></li>
         </ul>
       </nav>
@@ -244,7 +246,7 @@ const jsonLd = [{
           <span class="eyebrow">Performance &amp; lifestyle apparel</span>
           <h2 id="perf-title" class="display h2">Activewear under <span style="color:var(--gold-700)">your label</span></h2>
         </div>
-        <p class="lead">Gym, fitness, compression, yoga, running and streetwear for activewear brands, gyms and retailers, made in your fabric, colours and fit.</p>
+        <p class="lead">Gym, fitness, compression, yoga and running wear for activewear brands, gyms and retailers, made in your fabric, colours and fit.</p>
       </div>
       <div class="perf-layout">
         <a class="perf-feature" href={categoryUrl('activewear')}>
@@ -256,6 +258,39 @@ const jsonLd = [{
         </a>
         <div class="perf-tiles">
           {perfTiles.map((c) => {
+            const cover = coverProduct(c);
+            return (
+              <a class="perf-tile" href={categoryUrl(c)}>
+                <span class="m">{cover?.image && <img src={`${cover.image}-480.webp`} srcset={`${cover.image}-240.webp 240w, ${cover.image}-480.webp 480w`} sizes="(min-width: 900px) 18vw, 46vw" width="480" height="480" alt="" loading="lazy" decoding="async" />}</span>
+                <span>{c.name}<Icon name="arrow" /></span>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= STREETWEAR -->
+  <section class="section section--deep" aria-labelledby="street-title">
+    <div class="container">
+      <div class="section-head section-head--split">
+        <div class="stack">
+          <span class="eyebrow">Streetwear</span>
+          <h2 id="street-title" class="display h2">Streetwear for <span class="gold-text">your brand</span></h2>
+        </div>
+        <p class="lead">Heavyweight hoodies, tees, varsity and coach jackets, joggers and caps for streetwear labels, merch drops and team stores, made under your own label.</p>
+      </div>
+      <div class="perf-layout">
+        <a class="perf-feature" href={categoryUrl('streetwear')}>
+          <img src="/assets/hero/streetwear-1600.webp" srcset="/assets/hero/streetwear-960.webp 960w, /assets/hero/streetwear-1600.webp 1600w" sizes="(min-width: 1000px) 45vw, 100vw" width="1600" height="679" alt="Two people in dark hoodies and joggers by a city court fence at night" loading="lazy" decoding="async" style={`object-position:${categoryBySlug.streetwear.heroPosition}`} />
+          <span class="eyebrow">Full range</span>
+          <h3>Streetwear collection</h3>
+          <p>{categoryBySlug.streetwear.products.length} streetwear styles, from heavyweight hoodies to snapback caps.</p>
+          <span class="link-arrow" style="margin-top:1rem">Explore streetwear <Icon name="arrow" /></span>
+        </a>
+        <div class="perf-tiles">
+          {streetTiles.map((c) => {
             const cover = coverProduct(c);
             return (
               <a class="perf-tile" href={categoryUrl(c)}>

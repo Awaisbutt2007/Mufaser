@@ -2,7 +2,7 @@
 import Base from '../../layouts/Base.astro';
 import Icon from '../../components/Icon.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import { categories, groups } from '../../data/catalog';
+import { categories, coverProduct, groups } from '../../data/catalog';
 import { company, facts } from '../../data/company';
 
 const sports = categories.filter((c) => c.kind === 'sport' && c.products.length);
@@ -39,7 +39,10 @@ const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print'
               <select id="kit-sport" name="product" required data-sport aria-describedby="kit-sport-err">
                 {groups.map((g) => (
                   <optgroup label={g.name}>
-                    {sports.filter((s) => s.group === g.id).map((s) => <option value={`${s.name} kit`} data-slug={s.slug}>{s.name}</option>)}
+                    {sports.filter((s) => s.group === g.id).map((s) => {
+                      const cover = coverProduct(s);
+                      return <option value={`${s.name} kit`} data-slug={s.slug} data-img={cover?.image ?? undefined} data-name={cover?.name}>{s.name}</option>;
+                    })}
                   </optgroup>
                 ))}
               </select>
@@ -54,7 +57,7 @@ const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print'
               <div class="choice-grid" data-garments={s.slug}>
                 {s.products.map((p) => (
                   <label class="choice">
-                    <input type="checkbox" name="garments" value={p.name} data-summary="Garments"  />
+                    <input type="checkbox" name="garments" value={p.name} data-summary="Garments" data-img={p.image ?? undefined} />
                     {p.image && <img src={`${p.image}-240.webp`} width="42" height="42" alt="" loading="lazy" decoding="async" />}
                     {p.name}
                   </label>
@@ -198,20 +201,32 @@ const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print'
 
       <aside class="kit-preview" aria-label="Kit summary">
         <p class="eyebrow">Your kit</p>
-        <div class="canvas">
-          <svg class="kit-svg" viewBox="0 0 200 200" role="img" aria-label="Schematic colour preview of a jersey">
+        <div class="canvas" data-kit-canvas data-mode="tint">
+          <!-- Product photo of the selected sport/garment; the tint layer is masked to the garment's shape. -->
+          <div class="kit-photo" data-kit-photo hidden>
+            <img alt="" width="960" height="960" decoding="async" data-kit-img />
+            <span class="kit-tint" aria-hidden="true" data-kit-tint></span>
+          </div>
+          <svg class="kit-svg" viewBox="0 0 200 200" role="img" aria-label="Schematic colour preview of a jersey" data-kit-schematic>
             <path data-part="secondary" d="M62 34 30 48 10 92l26 14 12-24v100h104V82l12 24 26-14-20-44-32-14z" />
             <path data-part="primary" d="M62 34c4 12 18 20 38 20s34-8 38-20l14 6v142H48V40z" />
             <path data-part="accent" d="M62 34c4 12 18 20 38 20s34-8 38-20l-6-2c-4 10-16 16-32 16s-28-6-32-16zM48 120h104v8H48z" />
             <path d="M62 34 30 48 10 92l26 14 12-24v100h104V82l12 24 26-14-20-44-32-14c-4 12-18 20-38 20s-34-8-38-20z" fill="none" stroke="rgba(0,0,0,.35)" stroke-width="1.2" />
           </svg>
+          <button type="button" class="kit-mode" aria-pressed="true" data-kit-mode hidden>Showing your main colour</button>
+        </div>
+        <p class="kit-caption" data-kit-caption></p>
+        <div class="kit-colours" aria-label="Chosen colours">
+          {[['primary', 'Main'], ['secondary', 'Second'], ['accent', 'Accent']].map(([k, l]) => (
+            <span><i data-chip={k}></i>{l}</span>
+          ))}
         </div>
         <dl>
           <dt>Sport</dt><dd data-out="sport">—</dd>
           <dt>Garments</dt><dd data-out="garments">None selected</dd>
           <dt>Quantity</dt><dd data-out="qty">—</dd>
         </dl>
-        <p class="note">Schematic colour preview to help describe your kit. It is not a 3D configurator; your mockup is prepared by our team with the quotation.</p>
+        <p class="note">Concept visual of the selected garment with your main colour applied, to help describe your kit. It is not a 3D configurator; your full mockup in all your colours and branding is prepared by our team with the quotation.</p>
       </aside>
     </div>
   </section>
@@ -225,7 +240,69 @@ const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print'
   const lists = [...form.querySelectorAll<HTMLElement>('[data-garments]')];
   const svg = document.querySelector('.kit-svg')!;
   const out = (k: string) => document.querySelector<HTMLElement>(`[data-out="${k}"]`)!;
+  const canvas = document.querySelector<HTMLElement>('[data-kit-canvas]')!;
+  const photo = canvas.querySelector<HTMLElement>('[data-kit-photo]')!;
+  const photoImg = canvas.querySelector<HTMLImageElement>('[data-kit-img]')!;
+  const tint = canvas.querySelector<HTMLElement>('[data-kit-tint]')!;
+  const schematic = canvas.querySelector<SVGElement>('[data-kit-schematic]')!;
+  const modeBtn = canvas.querySelector<HTMLButtonElement>('[data-kit-mode]')!;
+  const caption = document.querySelector<HTMLElement>('[data-kit-caption]')!;
   let slot = 'primary';
+
+  /**
+   * Brightness multiplier that lifts the greyscale garment to a light base, so any chosen
+   * colour (even white on a black garment) shows once multiplied over it.
+   */
+  function liftFor(img: HTMLImageElement) {
+    try {
+      const c = document.createElement('canvas');
+      c.width = c.height = 48;
+      const ctx = c.getContext('2d', { willReadFrequently: true })!;
+      ctx.drawImage(img, 0, 0, 48, 48);
+      const d = ctx.getImageData(0, 0, 48, 48).data;
+      let sum = 0, n = 0;
+      for (let i = 0; i < d.length; i += 4) {
+        if (d[i + 3] < 200) continue;
+        sum += (0.2126 * d[i] + 0.7152 * d[i + 1] + 0.0722 * d[i + 2]) / 255;
+        n++;
+      }
+      const mean = n ? sum / n : 0.6;
+      return Math.min(6, Math.max(1, 0.78 / Math.max(mean, 0.05)));
+    } catch { return 1.2; }
+  }
+
+  /** Show the product photo of the last ticked garment, else the sport's cover garment. */
+  function syncPreview() {
+    const picked = [...form.querySelectorAll<HTMLInputElement>('input[name="garments"]:checked')].filter((i) => i.dataset.img);
+    const last = picked[picked.length - 1];
+    const opt = sport.selectedOptions[0];
+    const base = last?.dataset.img ?? opt?.dataset.img;
+    const name = last ? last.value : opt?.dataset.name;
+    photo.hidden = !base;
+    schematic.toggleAttribute('hidden', !!base);
+    modeBtn.hidden = !base;
+    if (!base) { caption.textContent = 'Schematic preview: product visual coming soon for this collection.'; return; }
+    const src = `${base}-960.webp`;
+    if (photoImg.getAttribute('src') !== src) {
+      photo.classList.remove('is-in');
+      photoImg.src = src;
+      photoImg.srcset = `${base}-480.webp 480w, ${base}-960.webp 960w`;
+      photoImg.sizes = '(min-width: 1040px) 380px, 80vw';
+      photoImg.alt = `${name}: concept visual`;
+      tint.style.setProperty('--mask', `url("${src}")`);
+      photoImg.decode().catch(() => {}).finally(() => {
+        photo.style.setProperty('--lift', String(liftFor(photoImg)));
+        requestAnimationFrame(() => photo.classList.add('is-in'));
+      });
+    }
+    caption.textContent = name ?? '';
+  }
+  modeBtn.addEventListener('click', () => {
+    const tinted = canvas.dataset.mode === 'tint';
+    canvas.dataset.mode = tinted ? 'original' : 'tint';
+    modeBtn.setAttribute('aria-pressed', String(!tinted));
+    modeBtn.textContent = tinted ? 'Showing original colours' : 'Showing your main colour';
+  });
 
   function slugOf() { return sport.selectedOptions[0]?.dataset.slug ?? ''; }
 
@@ -243,10 +320,13 @@ const methods = ['Recommend for me', 'Sublimation', 'Embroidery', 'Screen print'
   function syncGarments() {
     const picked = [...form.querySelectorAll<HTMLInputElement>('input[name="garments"]:checked')].map((i) => i.value);
     out('garments').textContent = picked.length ? picked.join(', ') : 'None selected';
+    syncPreview();
   }
   function syncColour(input: HTMLInputElement) {
     const part = input.dataset.colour!;
     svg.querySelectorAll<SVGPathElement>(`[data-part="${part}"]`).forEach((p) => p.setAttribute('fill', input.value));
+    if (part === 'primary') tint.style.backgroundColor = input.value;
+    document.querySelector<HTMLElement>(`[data-chip="${part}"]`)!.style.background = input.value;
     form.querySelector<HTMLOutputElement>(`[data-colour-out="${part}"]`)!.value = input.value;
   }
 

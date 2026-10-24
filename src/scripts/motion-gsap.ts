@@ -110,7 +110,14 @@ export async function setupMotion() {
     list.prepend(line);
     gsap.to(line, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: list, start: 'top 75%', end: 'bottom 60%', scrub: true } });
     $$('li', list).forEach((li, i) => {
-      gsap.from(li, { y: 40, autoAlpha: 0, duration: 0.8, ease: 'power3.out', delay: (i % 3) * 0.1, scrollTrigger: { trigger: li, start: 'top 88%', once: true } });
+      // fromTo, not from: the steps are also `.reveal` (opacity 0 until revealed), so a
+      // from() tween would animate back to opacity 0 and leave them invisible.
+      gsap.fromTo(li, { y: 40, autoAlpha: 0 }, {
+        y: 0, autoAlpha: 1, duration: 0.8, ease: 'power3.out', delay: (i % 3) * 0.1,
+        scrollTrigger: { trigger: li, start: 'top 88%', once: true },
+        onStart: () => li.classList.add('is-in'),
+        onComplete: () => gsap.set(li, { clearProps: 'transform,opacity,visibility' }),
+      });
       ScrollTrigger.create({ trigger: li, start: 'top 62%', onEnter: () => li.classList.add('is-on'), onLeaveBack: () => li.classList.remove('is-on') });
     });
   });

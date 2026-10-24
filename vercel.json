@@ -3,7 +3,6 @@
   "framework": "astro",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "trailingSlash": true,
   "rewrites": [
     {
       "source": "/api/:path*",
